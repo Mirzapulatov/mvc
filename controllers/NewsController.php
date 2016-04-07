@@ -9,7 +9,7 @@ class NewsController
     public function actionList($page)
     {
         $nav = new Navigation();
-        $ver = new Checker();
+        $checker = new Checker();
         $pagex = $page-1;
         $listCount = 3;
         $result = DB::run()->query("SELECT * FROM news ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
@@ -20,7 +20,12 @@ class NewsController
 
     public function actionView($id)
     {
-        DB::run()->query("UPDATE news SET views = views+1 WHERE id = $id");
+
+        $verif = strripos($_SESSION['newsView'], "|$id|");
+        if ($verif === false) {
+            DB::run()->query("UPDATE news SET views = views+1 WHERE id = $id");
+            $_SESSION['newsView'] .= "|$id|";
+        }
         $result = DB::run()->query("SELECT * FROM news WHERE id = $id");
         $getNews = $result->fetch();
         include_once (ROOT.'/views/News.php');

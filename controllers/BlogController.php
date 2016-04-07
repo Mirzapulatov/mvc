@@ -27,7 +27,11 @@ class BlogController
         /**
          * Blog view
          */
-        DB::run()->query("UPDATE blog SET views = views+1 WHERE id = $id");
+        $verif = strripos($_SESSION['blogView'], "|$id|");
+        if ($verif === false) {
+            DB::run()->query("UPDATE blog SET views = views+1 WHERE id = $id");
+            $_SESSION['blogView'] .= "|$id|";
+        }
         $result = DB::run()->query("SELECT * FROM blog WHERE id = $id");
         $getBlog = $result->fetch();
 

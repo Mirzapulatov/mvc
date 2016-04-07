@@ -10,7 +10,7 @@
                     <div class="clr"></div>
                     <div class="img"><img src="/common/images/img2.jpg" width="177" height="213" alt="" class="fl" /></div>
                     <div class="post_content">
-                        <p><?php echo $ver->resizeString($getNews['text'],600); ?></p>
+                        <p><?php echo $checker->resizeString($getNews['text'],600); ?></p>
                         <p class="spec"><a href="/news/<?php echo $getNews['id'] ?>" class="rm">Read more &raquo;</a></p>
                     </div>
                     <div class="clr"></div>
