@@ -15,7 +15,7 @@ class Checker
     public function checkUserName($userName)
     {
         $userName = trim($userName);
-        if (!$this->checkString($userName, 3, 20)) {
+        if (!$this->stringLength($userName, 3, 20)) {
             return false;
         } else {
             return (preg_match("#^[a-zA-Z0-9\-]+$#", $userName));
@@ -29,7 +29,7 @@ class Checker
      * @param int $max maximum length of the string
      * @return boolean
      */
-    public function checkString($text, $min, $max)
+    public function stringLength($text, $min, $max)
     {
         $sizeStr = strlen($text);
         return ($sizeStr >= $min and $sizeStr <= $max);
@@ -42,7 +42,7 @@ class Checker
      */
     public function checkEmail($email)
     {
-        if (!$this->checkString($email, 7, 150)) {
+        if (!$this->stringLength($email, 7, 150)) {
             return false;
         } else {
             return (preg_match("#^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+(\.([A-Za-z0-9])+)+$#", $email));
@@ -56,7 +56,7 @@ class Checker
      */
     public function checkSite($site)
     {
-        if (!$this->checkString($site, 12, 150)) {
+        if (!$this->stringLength($site, 12, 150)) {
             return false;
         } else {
             return (preg_match("#([a-z0-9\-])+\.([a-z0-9])+$#", $site));

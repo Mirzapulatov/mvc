@@ -3,26 +3,25 @@
 class Router
 {
     private $routes;
+    private $uri;
     public function __construct()
     {
         $this->routes = include (ROOT.'/config/routs.php');
+        if(!empty($_SERVER['REQUEST_URI']));
+        $this->uri = trim($_SERVER['REQUEST_URI'],"/");
     }
 
     private function getUri()
     {
-        if(!empty($_SERVER['REQUEST_URI']));
-            return trim($_SERVER['REQUEST_URI'],"/");
+
     }
 
-    public function run()
+    public function map()
     {
-        $uri = $this->getUri();
-
         foreach($this->routes as $uriPattern => $path) {
-            if(preg_match("#$uriPattern#",$uri)){
+            if(preg_match("#$uriPattern#",$this->uri)){
 
-
-                $internalRoute = preg_replace("#$uriPattern#", $path, $uri);
+                $internalRoute = preg_replace("#$uriPattern#", $path, $this->uri);
                 $segments = explode('/', $internalRoute);
                 $controllerName = sprintf('%sController', ucfirst(array_shift($segments)));
                 $actionsName = sprintf('action%s',  ucfirst(array_shift($segments)));
@@ -32,9 +31,11 @@ class Router
 
                 if(file_exists($controllerFile)) {
                     include_once ($controllerFile);
-                    }
+                    }else{
+                    include_once (ROOT.'/views/404.php');
+                }
 
-                $controllerObject = new $controllerName;
+                $controllerObject = new $controllerName();
                 $result = call_user_func_array(array($controllerObject, $actionsName),$parameters);
                 if($result==NULL)
                 {

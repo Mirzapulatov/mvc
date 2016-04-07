@@ -15,5 +15,6 @@
                     </div>
                     <div class="clr"></div>
                 </div>
-            <?php } echo $nav->leaf('blog', $page, $count, $listCount); ?>
+            <?php } echo $nav->leafThrough('blog', $page, $count, $listCount); ?>
+        </div>
 

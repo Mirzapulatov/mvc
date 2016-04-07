@@ -2,7 +2,6 @@
 
 class ContactController
 {
-
     public function actionView()
     {
         require_once(ROOT . '/models/Checker.php');

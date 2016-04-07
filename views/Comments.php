@@ -37,4 +37,5 @@
     <?php } ?>
 </div>
 </div>
-<?php echo $nav->leaf('blog/view/' . $id, $page, $count, $listCount); ?>
+<?php echo $nav->leafThrough('blog/view/' . $id, $page, $count, $listCount); ?>
+</div>
