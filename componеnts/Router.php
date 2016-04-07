@@ -18,18 +18,17 @@ class Router
     {
         $uri = $this->getUri();
 
-
         foreach($this->routes as $uriPattern => $path) {
-            if(preg_match("~$uriPattern~",$uri)){
+            if(preg_match("#$uriPattern#",$uri)){
 
 
-                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+                $internalRoute = preg_replace("#$uriPattern#", $path, $uri);
                 $segments = explode('/', $internalRoute);
-                $controllerName = ucfirst(array_shift($segments)).'Controller';
-                $actionsName = 'action'.   ucfirst(array_shift($segments));
+                $controllerName = sprintf('%sController', ucfirst(array_shift($segments)));
+                $actionsName = sprintf('action%s',  ucfirst(array_shift($segments)));
                 $parameters = $segments;
 
-                $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
+                $controllerFile = sprintf('%s/controllers/%s.php', ROOT, $controllerName);
 
                 if(file_exists($controllerFile)) {
                     include_once ($controllerFile);
