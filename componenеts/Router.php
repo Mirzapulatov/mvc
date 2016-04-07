@@ -32,10 +32,9 @@ class Router
                 $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
 
                 if(file_exists($controllerFile)) {
-
                     include_once ($controllerFile);
-
                     }
+
                 $controllerObject = new $controllerName;
                 $result = call_user_func_array(array($controllerObject, $actionsName),$parameters);
                 if($result==NULL)
