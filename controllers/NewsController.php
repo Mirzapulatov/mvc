@@ -1,7 +1,7 @@
 <?php
 
 include_once(ROOT . '/models/Navigation.php');
-include_once(ROOT . '/models/Verify.php');
+include_once(ROOT . '/models/Checker.php');
 
 class NewsController
 {

@@ -5,7 +5,7 @@ class ContactController
 
     public function actionView()
     {
-        require_once (ROOT.'/models/Verify.php');
+        require_once(ROOT . '/models/Checker.php');
 
         if(!empty($_POST)) {
             $verifer = new Checker();

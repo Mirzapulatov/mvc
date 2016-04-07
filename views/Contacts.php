@@ -25,7 +25,7 @@
                             <textarea id="message" name="message" rows="8" cols="50"></textarea>
                         </li>
                         <li>
-                            <input type="image" name="imageField" id="imageField" src="/design/images/submit.gif" class="send" />
+                            <input type="image" name="imageField" id="imageField" src="/common/images/submit.gif" class="send" />
                             <div class="clr"></div>
                         </li>
                     </ol>

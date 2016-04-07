@@ -6,15 +6,10 @@
  */
 class DB
 {
-
     public static function run()
     {
         try {
-            $host = "localhost";
-            $dbuser = "postgres";
-            $dbname = "test";
-            $dbpass = "123456";
-
+            include ROOT.'/config/DB.php';
             $db = new PDO("pgsql:host=$host;dbname=$dbname;", $dbuser, $dbpass);
             return $db;
         }catch (PDOException $e){

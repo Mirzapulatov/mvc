@@ -1,25 +1,16 @@
 <div class="sidebar">
-    <div class="searchform">
-        <form id="formsearch" name="formsearch" method="post" action="#">
-            <span>
-            <input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="80" value="Search our ste:" type="text" />
-            </span>
-            <input name="button_search" src="/design/images/search.gif" class="button_search" type="image" />
-        </form>
-    </div>
-    <div class="clr"></div>
+
     <div class="g1">
         <div class="g2">
             <div class="gadget">
-                <h2 class="star"><span>Sidebar</span> Menu</h2>
+                <h2 class="star"><span>Menu</span></h2>
                 <div class="clr"></div>
                 <ul class="sb_menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">TemplateInfo</a></li>
-                    <li><a href="#">Style Demo</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Archives</a></li>
-                    <li><a href="#">Web Templates</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/service">Услуги</a></li>
+                    <li><a href="/blog">Блог</a></li>
+                    <li><a href="/about">О компании</a></li>
+                    <li><a href="/contacts">Написать нам</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +45,7 @@
     <div class="fbg_resize">
         <div class="col c1">
             <h2><span>Image</span> Gallery</h2>
-            <a href="#"><img src="/design/images/gal1.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/design/images/gal2.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/design/images/gal3.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/design/images/gal4.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/design/images/gal5.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/design/images/gal6.jpg" width="75" height="75" alt="" class="gal" /></a> </div>
+            <a href="#"><img src="/common/images/gal1.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/common/images/gal2.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/common/images/gal3.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/common/images/gal4.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/common/images/gal5.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#"><img src="/common/images/gal6.jpg" width="75" height="75" alt="" class="gal" /></a> </div>
         <div class="col c2">
             <h2><span>Services</span> Overview</h2>
             <p>Curabitur sed urna id nunc pulvinar semper. Nunc sit amet tortor sit amet lacus sagittis posuere cursus vitae nunc.Etiam venenatis, turpis at eleifend porta, nisl nulla bibendum justo.</p>

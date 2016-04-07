@@ -2,7 +2,8 @@
 
 return array(
 
-    'blog/view/([0-9]+)' => 'blog/view/$1',
+    'blog/view/([0-9]+)/([0-9]+)' => 'blog/view/$1/$2',
+    'blog/view/([0-9]+)' => 'blog/view/$1/1',
     'blog/([0-9]+)' => 'blog/list/$1',
     'blog' => 'blog/list/1',
     'contacts' => 'contact/view',
