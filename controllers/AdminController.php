@@ -37,4 +37,16 @@ class AdminController
         include_once (ROOT."/models/Admin/Blog.php");
         include_once (ROOT."/views/Admin/AdminBlog.php");
     }
+
+    public function actionNews($case,$id,$ok)
+    {
+        include_once (ROOT."/models/Checker.php");
+        $checker = new Checker();
+        include_once (ROOT."/models/Navigation.php");
+        $nav = new Navigation();
+
+        $protect = true; // protect from user
+        include_once (ROOT."/models/Admin/News.php");
+        include_once (ROOT."/views/Admin/AdminNews.php");
+    }
 }

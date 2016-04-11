@@ -4,7 +4,6 @@
 
             <div class="article">
                 <a href="blog"> <h2><span>Blog</span></h2></a>
-
-
+                <a href="news"> <h2><span>News</span></h2></a>
             </div>
         </div>

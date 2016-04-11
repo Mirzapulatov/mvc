@@ -1,6 +1,12 @@
 <?php
 
 return array(
+    'admin/news/create' => 'admin/news/create',
+    'admin/news/update/([0-9]+)' => 'admin/news/update/$1',
+    'admin/news/delete/([0-9]+)/ok' => 'admin/news/delete/$1/1',
+    'admin/news/delete/([0-9]+)' => 'admin/news/delete/$1',
+    'admin/news/([0-9]+)' => 'admin/news/$1',
+    'admin/news' => 'admin/news/1',
     'admin/blog/create' => 'admin/blog/create',
     'admin/blog/update/([0-9]+)' => 'admin/blog/update/$1',
     'admin/blog/delete/([0-9]+)/ok' => 'admin/blog/delete/$1/1',
