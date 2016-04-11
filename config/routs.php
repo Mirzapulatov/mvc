@@ -1,7 +1,12 @@
 <?php
 
 return array(
-    'admin/blog' => 'admin/blog',
+    'admin/blog/create' => 'admin/blog/create',
+    'admin/blog/update/([0-9]+)' => 'admin/blog/update/$1',
+    'admin/blog/delete/([0-9]+)/ok' => 'admin/blog/delete/$1/1',
+    'admin/blog/delete/([0-9]+)' => 'admin/blog/delete/$1',
+    'admin/blog/([0-9]+)' => 'admin/blog/$1',
+    'admin/blog' => 'admin/blog/1',
     'admin' => 'admin/index',
     'blog/view/([0-9]+)/([0-9]+)' => 'blog/view/$1/$2',
     'blog/view/([0-9]+)' => 'blog/view/$1/1',

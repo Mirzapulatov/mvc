@@ -34,7 +34,7 @@ class Router
                     }else{
                     include_once (ROOT.'/views/404.php');
                 }
-
+                $_SERVER['REQUEST_URI'] = $this->uri;
                 $controllerObject = new $controllerName();
                 $result = call_user_func_array(array($controllerObject, $actionsName),$parameters);
                 if($result==NULL)
