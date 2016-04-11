@@ -1,9 +1,12 @@
 <?php
 if ($protect) {
     switch ($case) {
+        /**
+         * show records blog
+         */
         default:
             $pagex = $case-1;
-            $listCount = 20; //records per page
+            $listCount = 30; //records per page
             $query = DB::run()->query("SELECT * FROM blog ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
             $count = DB::run()->query("SELECT * FROM blog")->columnCount();
 

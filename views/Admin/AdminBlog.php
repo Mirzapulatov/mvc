@@ -1,10 +1,10 @@
 <?php
-if ($protect) { ?>
+if ($protect) { //protect from user ?>
     <div class="content">
     <div class="content_resize">
     <div class="mainbar">
         <div class="article">
-            <?php switch ($case) {
+            <?php switch ($case) { //View blog records
                 default:
                     ?>
                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/create">Create Blog</a><br/>
@@ -23,8 +23,9 @@ if ($protect) { ?>
                             </tr>
                         <?php } ?>
                     </table>
-                    <?php break;
-                case 'create': ?>
+                <?php echo $nav->leafThrough('admin/blog', $case, $count, $listCount);
+                    break;
+                case 'create': // Create blog record ?>
                     <a href="./">Blog Control</a><br/>
                     <h2><span>Create blog</span></h2>
                     <div class="clr"></div>
@@ -53,7 +54,7 @@ if ($protect) { ?>
                         </ol>
                     </form>
                     <?php break;
-                case 'update': ?>
+                case 'update': // update blog record  ?>
                     <a href="../.">Blog Control</a><br/>
                     <h2><span>Update blog</span></h2>
                     <div class="clr"></div>
@@ -88,7 +89,7 @@ if ($protect) { ?>
                         Блог не существует!
                     <?php }
                     break;
-                case 'delete': ?>
+                case 'delete': //delete blog record ?>
 
                     <?php
                     if ($availability) {
