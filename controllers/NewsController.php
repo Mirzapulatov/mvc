@@ -20,7 +20,6 @@ class NewsController
 
     public function actionView($id)
     {
-
         $verif = strripos($_SESSION['newsView'], "|$id|");
         if ($verif === false) {
             DB::run()->query("UPDATE news SET views = views+1 WHERE id = $id");

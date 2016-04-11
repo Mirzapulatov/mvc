@@ -1,7 +1,8 @@
 <?php
 
 return array(
-
+    'admin/blog' => 'admin/blog',
+    'admin' => 'admin/index',
     'blog/view/([0-9]+)/([0-9]+)' => 'blog/view/$1/$2',
     'blog/view/([0-9]+)' => 'blog/view/$1/1',
     'blog/([0-9]+)' => 'blog/list/$1',
