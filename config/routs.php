@@ -1,6 +1,14 @@
 <?php
 
 return array(
+    // Admin Contacts
+    'admin/contacts/view/([0-9]+)' => 'admin/contacts/view/$1',
+    'admin/contacts/update/([0-9]+)' => 'admin/contacts/update/$1',
+    'admin/contacts/delete/([0-9]+)/ok' => 'admin/contacts/delete/$1/1',
+    'admin/contacts/delete/([0-9]+)' => 'admin/contacts/delete/$1',
+    'admin/contacts/([0-9]+)' => 'admin/contacts/$1',
+    'admin/contacts' => 'admin/contacts/1',
+
     // Admin News
     'admin/news/create' => 'admin/news/create',
     'admin/news/update/([0-9]+)' => 'admin/news/update/$1',
