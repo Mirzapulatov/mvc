@@ -33,6 +33,7 @@ class NewsController
         }
         $result = DB::run()->query("SELECT * FROM news WHERE id = $id");
         $getNews = $result->fetch();
+        $checker = new Checker();
         include_once(ROOT . '/views/news/News.php');
     }
 

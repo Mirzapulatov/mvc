@@ -17,8 +17,8 @@ if ($protect) { //protect from user ?>
                         <?php } while ($blogComments = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $blogComments['id']; ?></td>
-                                <td><?php echo $checker->resizeString($blogComments['name'], 20); ?></td>
-                                <td><?php echo $checker->resizeString($blogComments['message'], 50); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($blogComments['name'], 20)); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($blogComments['message'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $blogComments['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $blogComments['id']; ?>">Edit</a>
@@ -27,7 +27,7 @@ if ($protect) { //protect from user ?>
                             </tr>
                         <?php } ?>
                     </table>
-                <?php echo $nav->leafThrough('admin/comments', $case, $count, $listCount);
+                <?php echo $nav->leafThrough('admin/comments/'.$idblog, $case, $count, $listCount);
                     break;
                 case 'create': // Create comments record ?>
                     <a href="./">Comments Control</a><br/>
@@ -67,11 +67,11 @@ if ($protect) { //protect from user ?>
                             <ol>
                                 <li>
                                     <label for="name"> name</label>
-                                    <input name="name" class="message" value="<?php echo $blogComments['name']; ?>"/>
+                                    <input name="name" class="message" value="<?php echo $checker->CheckXSS($blogComments['name']); ?>"/>
                                 </li>
                                 <li>
                                     <label for="message">message </label>
-                                    <textarea name="message" rows="8" cols="50"><?php echo $blogComments['message']; ?></textarea>
+                                    <textarea name="message" rows="8" cols="50"><?php echo $checker->CheckXSS($blogComments['message']); ?></textarea>
                                 </li>
                                 <li>
                                     <input type="image" name="imageField" id="imageField"

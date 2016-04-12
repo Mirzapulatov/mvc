@@ -14,8 +14,8 @@ if ($protect) { //protect from user ?>
                         <?php while ($blog = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $blog['id']; ?></td>
-                                <td><?php echo $checker->resizeString($blog['title'], 20); ?></td>
-                                <td><?php echo $checker->resizeString($blog['text'], 50); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($blog['title'], 20)); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($blog['text'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $blog['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $blog['id']; ?>">Edit</a>
@@ -73,11 +73,11 @@ if ($protect) { //protect from user ?>
                                 </li>
                                 <li>
                                     <label for="author">Author </label>
-                                    <input name="author" class="text" value="<?php echo $blog['author']; ?>"/>
+                                    <input name="author" class="text" value="<?php echo $checker->CheckXSS($blog['author']); ?>"/>
                                 </li>
                                 <li>
                                     <label for="text">Text </label>
-                                    <textarea name="text" rows="8" cols="50"><?php echo $blog['text']; ?></textarea>
+                                    <textarea name="text" rows="8" cols="50"><?php echo $checker->CheckXSS($blog['text']); ?></textarea>
                                 </li>
                                 <li>
                                     <input type="image" name="imageField" id="imageField"

@@ -11,7 +11,7 @@ class BlogController
     public function actionList($page)
     {
         $nav = new Navigation();
-        $ver = new Checker();
+        $checker = new Checker();
         $pagex = $page-1;
         $listCount = 3; //records per page
         $result = DB::run()->query("SELECT * FROM blog ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
@@ -32,6 +32,7 @@ class BlogController
         }
         $result = DB::run()->query("SELECT * FROM blog WHERE id = $id");
         $getBlog = $result->fetch();
+        $checker = new Checker();
         include_once(ROOT . '/views/blog/BlogView.php');
 
         include_once (ROOT.'/controllers/CommentsController.php');

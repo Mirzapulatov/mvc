@@ -37,19 +37,19 @@ if ($protect) { //protect from user ?>
                             <ol>
                                 <li>
                                     <label for="name">Name </label>
-                                    <?php echo $contacts['name']; ?>
+                                    <?php echo $checker->CheckXSS($contacts['name']); ?>
                                 </li>
                                 <li>
                                     <label for="email">Email Address </label>
-                                    <?php echo $contacts['email']; ?>
+                                    <?php echo $checker->CheckXSS($contacts['email']); ?>
                                 </li>
                                 <li>
                                     <label for="website">Website</label>
-                                    <?php echo $contacts['site']; ?>" />
+                                    <?php echo $checker->CheckXSS($contacts['site']); ?>" />
                                 </li>
                                 <li>
                                     <label for="message">Message</label>
-                                    <?php echo $contacts['message']; ?>
+                                    <?php echo $checker->CheckXSS($contacts['message']); ?>
                                 </li>
                             </ol>
                     <?php } else {
@@ -70,19 +70,19 @@ if ($protect) { //protect from user ?>
                             <ol>
                                 <li>
                                     <label for="name">Name </label>
-                                    <input id="name" name="name" class="text" value="<?php echo $contacts['name']; ?>" />
+                                    <input id="name" name="name" class="text" value="<?php echo $checker->CheckXSS($contacts['name']); ?>" />
                                 </li>
                                 <li>
                                     <label for="email">Email Address </label>
-                                    <input id="email" name="email" class="text" value="<?php echo str_replace(" ","",$contacts['email']); ?>" />
+                                    <input id="email" name="email" class="text" value="<?php echo $checker->CheckXSS(str_replace(" ","",$contacts['email'])); ?>" />
                                 </li>
                                 <li>
                                     <label for="website">Website</label>
-                                    <input id="website" name="website" class="text" value="<?php echo str_replace(" ","",$contacts['site']); ?>" />
+                                    <input id="website" name="website" class="text" value="<?php echo $checker->CheckXSS(str_replace(" ","",$contacts['site'])); ?>" />
                                 </li>
                                 <li>
                                     <label for="message">Your Message</label>
-                                    <textarea id="message" name="message" rows="8" cols="50"><?php echo $contacts['message']; ?></textarea>
+                                    <textarea id="message" name="message" rows="8" cols="50"><?php echo $checker->CheckXSS($contacts['message']); ?></textarea>
                                 </li>
                                 <li>
                                     <input type="image" name="imageField" id="imageField"

@@ -9,7 +9,7 @@ if ($protect) {
             $pagex = $case-1;
             $listCount = 30; //records per page
             $query = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $idblog ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-            $count = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $idblog")->columnCount();
+            $count = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $idblog")->rowCount();
 
             break;
         /**

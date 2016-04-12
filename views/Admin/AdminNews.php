@@ -13,8 +13,8 @@ if ($protect) { //protect from user ?>
                         <?php while ($news = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $news['id']; ?></td>
-                                <td><?php echo $checker->resizeString($news['title'], 20); ?></td>
-                                <td><?php echo $checker->resizeString($news['text'], 50); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($news['title'], 20)); ?></td>
+                                <td><?php echo $checker->resizeString($checker->CheckXSS($news['text'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $news['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $news['id']; ?>">Edit</a>
@@ -63,12 +63,12 @@ if ($protect) { //protect from user ?>
                             <ol>
                                 <li>
                                     <label for="name"> Title</label>
-                                    <input name="title" class="text" value="<?php echo $news['title']; ?>"/>
+                                    <input name="title" class="text" value="<?php echo $checker->CheckXSS($news['title']); ?>"/>
                                 </li>
                                 <li>
                                 <li>
                                     <label for="text">Text </label>
-                                    <textarea name="text" rows="8" cols="50"><?php echo $news['text']; ?></textarea>
+                                    <textarea name="text" rows="8" cols="50"><?php echo $checker->CheckXSS($news['text']); ?></textarea>
                                 </li>
                                 <li>
                                     <input type="image" name="imageField" id="imageField"
