@@ -4,7 +4,7 @@ if ($protect) { //protect from user ?>
     <div class="content_resize">
     <div class="mainbar">
         <div class="article">
-            <?php switch ($case) { //View blog records
+            <?php switch ($case) { //View comments records
                 default:
                     ?>
                     <a href="/admin">Admin Panel</a><br/>
@@ -29,7 +29,7 @@ if ($protect) { //protect from user ?>
                     </table>
                 <?php echo $nav->leafThrough('admin/comments', $case, $count, $listCount);
                     break;
-                case 'create': // Create blog record ?>
+                case 'create': // Create comments record ?>
                     <a href="./">Comments Control</a><br/>
                     <h2><span>Create Comment</span></h2>
                     <div class="clr"></div>
@@ -85,7 +85,7 @@ if ($protect) { //protect from user ?>
                         Блог не существует!
                     <?php }
                     break;
-                case 'delete': //delete blog record ?>
+                case 'delete': //delete comments record ?>
 
                     <?php
                     if ($availability) {

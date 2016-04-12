@@ -2,7 +2,7 @@
 if ($protect) {
     switch ($case) {
         /**
-         * show records blog_comments
+         * show records of blog_comments
          */
         default:
 
@@ -12,6 +12,9 @@ if ($protect) {
             $count = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $idblog")->columnCount();
 
             break;
+        /**
+         * create record of blog_comments
+         */
         case 'create':
             if(!empty($_POST)) {
                 $msg = "";
@@ -29,6 +32,9 @@ if ($protect) {
                 //return $msg;
             }
             break;
+        /**
+         * update record of blog_comments
+         */
         case 'update':
             if(!empty($_POST)) {
                 $msg = "";
@@ -48,7 +54,9 @@ if ($protect) {
             $blogComments = $query->fetch();
             $availability = $query->rowCount();
             break;
-
+        /**
+         * delete record of blog_comments
+         */
         case 'delete':
             $query = DB::run()->query("SELECT * FROM blog_comments WHERE id = $id");
             $availability = $query->rowCount();

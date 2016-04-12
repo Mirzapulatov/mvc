@@ -2,7 +2,7 @@
 if ($protect) {
     switch ($case) {
         /**
-         * show records blog
+         * show records news
          */
         default:
             $pagex = $case-1;
@@ -11,6 +11,9 @@ if ($protect) {
             $count = DB::run()->query("SELECT * FROM news")->columnCount();
 
             break;
+        /**
+         * create record of news
+         */
         case 'create':
             if(!empty($_POST)) {
                 $msg = "";
@@ -28,6 +31,9 @@ if ($protect) {
                 //return $msg;
             }
             break;
+        /**
+         * update record of news
+         */
         case 'update':
             if(!empty($_POST)) {
                 $msg = "";
@@ -47,7 +53,9 @@ if ($protect) {
             $news = $query->fetch();
             $availability = $query->rowCount();
             break;
-
+        /**
+         * delete record of news
+         */
         case 'delete':
             $query = DB::run()->query("SELECT * FROM news WHERE id = $id");
             $availability = $query->rowCount();

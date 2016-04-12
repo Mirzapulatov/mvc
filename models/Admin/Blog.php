@@ -11,6 +11,9 @@ if ($protect) {
             $count = DB::run()->query("SELECT * FROM blog")->columnCount();
 
             break;
+        /**
+         * create record of blog
+         */
         case 'create':
             if(!empty($_POST)) {
                 $msg = "";
@@ -31,6 +34,9 @@ if ($protect) {
                 //return $msg;
             }
             break;
+        /**
+         * update record of blog
+         */
         case 'update':
             if(!empty($_POST)) {
                 $msg = "";
@@ -53,7 +59,9 @@ if ($protect) {
             $blog = $query->fetch();
             $availability = $query->rowCount();
             break;
-
+        /**
+         * delete record of blog
+         */
         case 'delete':
             $query = DB::run()->query("SELECT * FROM blog WHERE id = $id");
             $availability = $query->rowCount();
