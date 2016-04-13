@@ -7,7 +7,7 @@ if ($protect) { //protect from user ?>
             <?php switch ($case) { //View portfolio records
                 default:
                     ?>
-                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/create">Создать блог </a><br/>
+                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/create">Создать портфолио </a><br/>
                     <h2><span>CRUD</span></h2>
                     <table border="1px">
 
@@ -27,8 +27,8 @@ if ($protect) { //protect from user ?>
                     <?php echo $nav->leafThrough('admin/portfolio', $case, $count, $listCount);
                     break;
                 case 'create': // Create portfolio record ?>
-                    <a href="./">Управление блогом </a><br/>
-                    <h2><span>Создание блога </span></h2>
+                    <a href="./">Управление портфолио </a><br/>
+                    <h2><span>Создание портфолио </span></h2>
                     <div class="clr"></div>
                     <?php if (!empty($msg)) {
                         echo $msg;
@@ -55,8 +55,8 @@ if ($protect) { //protect from user ?>
                     </form>
                     <?php break;
                 case 'update': // update portfolio record  ?>
-                    <a href="../.">Blog Control</a><br/>
-                    <h2><span>Update portfolio</span></h2>
+                    <a href="../.">Управление портфолио</a><br/>
+                    <h2><span>Изменене портфолио</span></h2>
                     <div class="clr"></div>
                     <?php
                     if ($availability) {
@@ -93,12 +93,12 @@ if ($protect) { //protect from user ?>
                     <?php
                     if ($availability) {
                         if ($ok == true) { ?>
-                            <a href="../../../">Управление блогом</a><br/>
+                            <a href="../../../">Управление портфолио</a><br/>
                             <h2><span>Удаление записи</span></h2>
                             <div class="clr"></div>
                             Успешно удалено!
                         <?php } else { ?>
-                            <a href=".././">Управление блогом</a><br/>
+                            <a href=".././">Управление портфолио</a><br/>
                             <h2><span>Удаление записи</span></h2>
                             <div class="clr"></div>
                             <ol>
