@@ -17,8 +17,8 @@ class CommentsController
         $pagex = $page-1;
         $listCount = 7; //records per page
 
-        $result = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $id ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-        $count = DB::run()->query("SELECT * FROM blog_comments WHERE id_blog = $id")->rowCount();
+        $result = DB::run()->query("SELECT * FROM bcomments WHERE id_blog = $id ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
+        $count = DB::run()->query("SELECT * FROM bcomments WHERE id_blog = $id")->rowCount();
 
         $nav = new Navigation();
         $checker = new Checker();

@@ -3,29 +3,25 @@
         <div class="mainbar">
 
             <div class="article">
-                <h2><span>Send us</span> mail</h2>
+                <h2><span>Напишите</span> нам</h2>
                 <div class="clr"></div>
                 <?php if(!empty($msg)){ echo $msg; } ?>
                 <form action="" method="post" id="sendemail">
                     <ol>
                         <li>
-                            <label for="name">Name (required)</label>
+                            <label for="name">Имя</label>
                             <input id="name" name="name" class="text" />
                         </li>
                         <li>
-                            <label for="email">Email Address (required)</label>
+                            <label for="email">Почта</label>
                             <input id="email" name="email" class="text" />
                         </li>
                         <li>
-                            <label for="website">Website</label>
-                            <input id="website" name="website" class="text" value="http://"/>
-                        </li>
-                        <li>
-                            <label for="message">Your Message</label>
+                            <label for="message">Сообщение</label>
                             <textarea id="message" name="message" rows="8" cols="50"></textarea>
                         </li>
                         <li>
-                            <input type="image" name="imageField" id="imageField" src="/common/images/submit.gif" class="send" />
+                            <input type="submit" class="send" value="Написать" />
                             <div class="clr"></div>
                         </li>
                     </ol>

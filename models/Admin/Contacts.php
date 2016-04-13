@@ -34,15 +34,12 @@ if ($protect) {
                 if(!$checker->checkEmail($_POST['email'])){
                     $msg = sprintf("%s Ошибка почты. Образец: name@domain.com <br/>", $msg);
                 }
-                if(!$checker->checkSite($_POST['website'])){
-                    $msg = sprintf("%s Ошибка сайта. Образец http://domain.com<br/>", $msg);
-                }
                 if(!$checker->stringLength($_POST['message'], 100, 5000)){
                     $msg = sprintf("%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов.<br/>", $msg);
                 }
                 if(empty($msg)){
-                    $add = DB::run()->prepare("UPDATE contacts SET name = ?, email = ?, site = ?, message = ?, time = ? WHERE id = ?");
-                    $add->execute(array($_POST['name'], $_POST['email'], $_POST['website'], $_POST['message'], time(), $id));
+                    $add = DB::run()->prepare("UPDATE contacts SET name = ?, email = ?, message = ?, time = ? WHERE id = ?");
+                    $add->execute(array($_POST['name'], $_POST['email'], $_POST['message'], time(), $id));
                     $msg = "Успешно!";
                 }
             }

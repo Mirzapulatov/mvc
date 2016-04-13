@@ -29,12 +29,14 @@ class AdminController
      */
     public function actionBlog($case,$id,$ok)
     {
-        $checker = new Checker();
-        $nav = new Navigation();
+        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+            $checker = new Checker();
+            $nav = new Navigation();
 
-        $protect = true; // protect from user
-        include_once (ROOT."/models/Admin/Blog.php");
-        include_once (ROOT."/views/Admin/AdminBlog.php");
+            $protect = true; // protect from user
+            include_once(ROOT . "/models/Admin/Blog.php");
+            include_once(ROOT . "/views/Admin/AdminBlog.php");
+        }
     }
 
     /**
@@ -46,12 +48,14 @@ class AdminController
      */
     public function actionComments($idblog, $case, $id, $ok)
     {
-        $checker = new Checker();
-        $nav = new Navigation();
+        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+            $checker = new Checker();
+            $nav = new Navigation();
 
-        $protect = true; // protect from user
-        include_once (ROOT."/models/Admin/BlogComments.php");
-        include_once (ROOT."/views/Admin/AdminBlogComments.php");
+            $protect = true; // protect from user
+            include_once(ROOT . "/models/Admin/BlogComments.php");
+            include_once(ROOT . "/views/Admin/AdminBlogComments.php");
+        }
     }
     /**
      * AdminPanel -> NewsCRUD
@@ -61,12 +65,14 @@ class AdminController
      */
     public function actionNews($case,$id,$ok)
     {
-        $checker = new Checker();
-        $nav = new Navigation();
+        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+            $checker = new Checker();
+            $nav = new Navigation();
 
-        $protect = true; // protect from user
-        include_once (ROOT."/models/Admin/News.php");
-        include_once (ROOT."/views/Admin/AdminNews.php");
+            $protect = true; // protect from user
+            include_once(ROOT . "/models/Admin/News.php");
+            include_once(ROOT . "/views/Admin/AdminNews.php");
+        }
     }
 
     /**

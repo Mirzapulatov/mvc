@@ -3,22 +3,22 @@
         <div class="mainbar">
 
             <div class="article">
-                <h2><span>Admin Authorization</span></h2>
+                <h2><span>Авторизация</span></h2>
                 <div class="clr"></div>
                 <?php if(!empty($msg)){ echo $msg; } ?>
-                <form action="" method="post" id="sendemail">
+                <form action="" method="post">
                     <ol>
                         <li>
-                            <label for="name">Name </label>
+                            <label for="name">Имя </label>
                             <input id="name" name="AdminName" class="text" />
                         </li>
                         <li>
-                            <label for="password">Password </label>
+                            <label for="password">Пароль </label>
                             <input id="password" name="AdminPassword" type="password" class="text" />
                         </li>
 
                         <li>
-                            <input type="image" name="imageField" id="imageField" src="/common/images/submit.gif" class="send" />
+                            <input type="submit" value="Войти" class="send" />
                             <div class="clr"></div>
                         </li>
                     </ol>

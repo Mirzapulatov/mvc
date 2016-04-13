@@ -7,18 +7,18 @@ if ($protect) { //protect from user ?>
             <?php switch ($case) { //View News records
                 default:
                     ?>
-                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/create">Create News</a><br/>
+                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/create">Создать новость</a><br/>
                     <h2><span>CRUD</span></h2>
                     <table border="1px">
                         <?php while ($news = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $news['id']; ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($news['title'], 20)); ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($news['text'], 50)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($news['title'], 20)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($news['text'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $news['time']); ?></td>
                                 <td>
-                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $news['id']; ?>">Edit</a>
-                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/delete/<?php echo $news['id']; ?>">Delete</a>
+                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $news['id']; ?>">Изменить</a>
+                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/delete/<?php echo $news['id']; ?>">Удалить</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -26,8 +26,8 @@ if ($protect) { //protect from user ?>
                 <?php echo $nav->leafThrough('admin/news', $case, $count, $listCount);
                     break;
                 case 'create': // Create News record ?>
-                    <a href="./">News Control</a><br/>
-                    <h2><span>Create News</span></h2>
+                    <a href="./">Управление новостями</a><br/>
+                    <h2><span>Создать новость</span></h2>
                     <div class="clr"></div>
                     <?php if (!empty($msg)) {
                         echo $msg;
@@ -35,23 +35,22 @@ if ($protect) { //protect from user ?>
                     <form action="" method="post">
                         <ol>
                             <li>
-                                <label for="name"> Title</label>
+                                <label for="name"> Заголовок</label>
                                 <input name="title" class="text"/>
                             </li>
                             <li>
-                                <label for="text">Text </label>
+                                <label for="text">Текст новости </label>
                                 <textarea name="text" rows="8" cols="50"></textarea>
                             </li>
                             <li>
-                                <input type="image" name="imageField" id="imageField" src="/common/images/submit.gif"
-                                       class="send"/>
+                                <input type="submit" value="Создать" class="send"/>
                                 <div class="clr"></div>
                             </li>
                         </ol>
                     </form>
                     <?php break;
                 case 'update': // update News record  ?>
-                    <a href="../.">News Control</a><br/>
+                    <a href="../.">Управление новостями</a><br/>
                     <h2><span>Update News</span></h2>
                     <div class="clr"></div>
                     <?php
@@ -62,17 +61,16 @@ if ($protect) { //protect from user ?>
                         <form action="" method="post">
                             <ol>
                                 <li>
-                                    <label for="name"> Title</label>
+                                    <label for="name"> Заголовок</label>
                                     <input name="title" class="text" value="<?php echo $checker->CheckXSS($news['title']); ?>"/>
                                 </li>
                                 <li>
                                 <li>
-                                    <label for="text">Text </label>
+                                    <label for="text">Текст новости </label>
                                     <textarea name="text" rows="8" cols="50"><?php echo $checker->CheckXSS($news['text']); ?></textarea>
                                 </li>
                                 <li>
-                                    <input type="image" name="imageField" id="imageField"
-                                           src="/common/images/submit.gif" class="send"/>
+                                    <input type="submit" value="Изменить" class="send"/>
                                     <div class="clr"></div>
                                 </li>
                             </ol>
@@ -87,12 +85,12 @@ if ($protect) { //protect from user ?>
                     <?php
                     if ($availability) {
                         if ($ok == true) { ?>
-                            <a href="../../../">News Control</a><br/>
+                            <a href="../../../">Управление новостями</a><br/>
                             <h2><span>Delete News</span></h2>
                             <div class="clr"></div>
                             Успешно удалено!
                         <?php } else { ?>
-                            <a href=".././">News Control</a><br/>
+                            <a href=".././">Управление новостями</a><br/>
                             <h2><span>Delete News</span></h2>
                             <div class="clr"></div>
                             <ol>

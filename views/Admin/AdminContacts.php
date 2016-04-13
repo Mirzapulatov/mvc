@@ -15,13 +15,12 @@ if ($protect) { //protect from user ?>
                                 <td><?php echo $contacts['id']; ?></td>
                                 <td><?php echo $contacts['name']; ?></td>
                                 <td><?php echo $contacts['email']; ?></td>
-                                <td><?php echo $contacts['site']; ?></td>
                                 <td><?php echo $checker->resizeString($contacts['message'], 200); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $contacts['time']); ?></td>
                                 <td>
-                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/view/<?php echo $contacts['id']; ?>">View</a>
-                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $contacts['id']; ?>">Edit</a>
-                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/delete/<?php echo $contacts['id']; ?>">Delete</a>
+                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/view/<?php echo $contacts['id']; ?>">Просмтотреть</a>
+                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $contacts['id']; ?>">Изменить</a>
+                                    <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/delete/<?php echo $contacts['id']; ?>">Удалить</a>
 
                                 </td>
                             </tr>
@@ -30,25 +29,21 @@ if ($protect) { //protect from user ?>
                 <?php echo $nav->leafThrough('admin/contacts', $case, $count, $listCount);
                     break;
                 case 'view': // view contacts record  ?>
-                    <a href="../.">contacts Control</a><br/>
-                    <h2><span>View contacts</span></h2>
+                    <a href="../.">Управление контактами</a><br/>
+                    <h2><span>Просмотр сообщения</span></h2>
                     <div class="clr"></div>
                     <?php if ($availability) { ?>
                             <ol>
                                 <li>
-                                    <label for="name">Name </label>
+                                    <label for="name">Имя </label>
                                     <?php echo $checker->CheckXSS($contacts['name']); ?>
                                 </li>
                                 <li>
-                                    <label for="email">Email Address </label>
+                                    <label for="email">Почта </label>
                                     <?php echo $checker->CheckXSS($contacts['email']); ?>
                                 </li>
                                 <li>
-                                    <label for="website">Website</label>
-                                    <?php echo $checker->CheckXSS($contacts['site']); ?>" />
-                                </li>
-                                <li>
-                                    <label for="message">Message</label>
+                                    <label for="message">Сообщение</label>
                                     <?php echo $checker->CheckXSS($contacts['message']); ?>
                                 </li>
                             </ol>
@@ -58,8 +53,8 @@ if ($protect) { //protect from user ?>
                     <?php }
                     break;
                 case 'update': // update contacts record  ?>
-                    <a href="../.">contacts Control</a><br/>
-                    <h2><span>Update contacts</span></h2>
+                    <a href="../.">Управление контактами</a><br/>
+                    <h2><span>Изменить контакт</span></h2>
                     <div class="clr"></div>
                     <?php
                     if ($availability) {
@@ -69,24 +64,19 @@ if ($protect) { //protect from user ?>
                         <form action="" method="post">
                             <ol>
                                 <li>
-                                    <label for="name">Name </label>
+                                    <label for="name">Имя </label>
                                     <input id="name" name="name" class="text" value="<?php echo $checker->CheckXSS($contacts['name']); ?>" />
                                 </li>
                                 <li>
-                                    <label for="email">Email Address </label>
+                                    <label for="email">Почта </label>
                                     <input id="email" name="email" class="text" value="<?php echo $checker->CheckXSS(str_replace(" ","",$contacts['email'])); ?>" />
                                 </li>
                                 <li>
-                                    <label for="website">Website</label>
-                                    <input id="website" name="website" class="text" value="<?php echo $checker->CheckXSS(str_replace(" ","",$contacts['site'])); ?>" />
-                                </li>
-                                <li>
-                                    <label for="message">Your Message</label>
+                                    <label for="message">Сообщение </label>
                                     <textarea id="message" name="message" rows="8" cols="50"><?php echo $checker->CheckXSS($contacts['message']); ?></textarea>
                                 </li>
                                 <li>
-                                    <input type="image" name="imageField" id="imageField"
-                                           src="/common/images/submit.gif" class="send"/>
+                                    <input type="submit" value="Изменить" class="send"/>
                                     <div class="clr"></div>
                                 </li>
                             </ol>
@@ -101,13 +91,13 @@ if ($protect) { //protect from user ?>
                     <?php
                     if ($availability) {
                         if ($ok == true) { ?>
-                            <a href="../../../">contacts Control</a><br/>
-                            <h2><span>Delete contacts</span></h2>
+                            <a href="../../../">Управление контактами</a><br/>
+                            <h2><span>Удаление контакта</span></h2>
                             <div class="clr"></div>
                             Успешно удалено!
                         <?php } else { ?>
-                            <a href=".././">contacts Control</a><br/>
-                            <h2><span>Delete contacts</span></h2>
+                            <a href=".././">Управление контактами</a><br/>
+                            <h2><span>Удаление контакта</span></h2>
                             <div class="clr"></div>
                             <ol>
                                 <li>

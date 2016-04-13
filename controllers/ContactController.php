@@ -8,7 +8,7 @@ class ContactController
     public function actionView()
     {
         if(!empty($_POST)) {
-            $msg = $this->insert($_POST['name'],$_POST['email'],$_POST['website'],$_POST['message']);
+            $msg = $this->insert($_POST['name'],$_POST['email'],$_POST['message']);
         }
         require_once(ROOT . "/views/contacts/Contacts.php");
     }
@@ -20,7 +20,7 @@ class ContactController
      * @param string $message message user
      * @return mixed
      */
-    private function insert($name,$email,$website,$message)
+    private function insert($name,$email,$message)
     {
         include_once (ROOT.'/models/Checker.php');
         $checker = new Checker();

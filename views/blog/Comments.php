@@ -5,15 +5,15 @@
     <form action="" method="post" id="sendemail">
         <ol>
             <li>
-                <label for="name">Name </label>
+                <label for="name">Имя </label>
                 <input id="name" name="name" class="text" />
             </li>
             <li>
-                <label for="message">Your Message</label>
+                <label for="message">Сообщение </label>
                 <textarea id="message" name="message" rows="4" cols="50"></textarea>
             </li>
             <li>
-                <input type="image" name="imageField" id="imageField" src="/common/images/submit.gif" class="send" />
+                <input type="submit" value="Написать" class="send" />
                 <div class="clr"></div>
             </li>
         </ol>
