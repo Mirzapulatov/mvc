@@ -90,4 +90,20 @@ class AdminController
         include_once (ROOT."/models/Admin/Contacts.php");
         include_once (ROOT."/views/Admin/AdminContacts.php");
     }
+
+    /**
+     * AdminPanel -> ContactsRUD
+     * @param string $case module
+     * @param int $id id record
+     * @param int $ok delete confirmation
+     */
+    public function actionPortfolio($case,$id,$ok)
+    {
+        $checker = new Checker();
+        $nav = new Navigation();
+
+        $protect = true; // protect from user
+        include_once (ROOT."/models/Admin/Portfolio.php");
+        include_once (ROOT."/views/Admin/AdminPortfolio.php");
+    }
 }

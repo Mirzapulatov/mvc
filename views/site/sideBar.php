@@ -1,30 +1,4 @@
-<div class="sidebar">
 
-
-            <div class="gadget">
-                <h2 class="star"><span>Меню</span></h2>
-                <div class="clr"></div>
-                <ul class="sb_menu">
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/service">Услуги</a></li>
-                    <li><a href="/blog">Блог</a></li>
-                    <li><a href="/about">О компании</a></li>
-                    <li><a href="/contacts">Написать нам</a></li>
-                </ul>
-    </div>
-    <?php if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword){ ?>
-
-            <div class="gadget">
-                <h2 class="star"><span>Админ панель</span></h2>
-                <div class="clr"></div>
-                <ul class="ex_menu">
-                    <li><a href="/admin/blog/"> <span>Управление блогом</span></a></li>
-                    <li><a href="/admin/news/"> <span>Управление новостями</span></a></li>
-                    <li><a href="/admin/contacts/"> <span>Почта</span></a></li>
-                </ul>
-    </div>
-    <?php } ?>
-</div>
 <div class="clr"></div>
 </div>
 </div>

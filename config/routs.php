@@ -1,15 +1,6 @@
 <?php
 
 return array(
-    // about
-    'about' => 'about/index',
-
-    // Service
-    'service/seo' => 'service/seo',
-    'service/web' => 'service/web',
-    'service/support' => 'service/support',
-    'service/mobile' => 'service/mobile',
-    'service' => 'service/index',
 
     // Admin Contacts
     'admin/contacts/view/([0-9]+)' => 'admin/contacts/view/$1',
@@ -35,6 +26,14 @@ return array(
     'admin/comments/([0-9]+)/([0-9]+)' => 'admin/comments/$1/$2',
     'admin/comments/([0-9]+)' => 'admin/comments/$1/1',
 
+    // Admin Portfolio
+    'admin/portfolio/create' => 'admin/portfolio/create',
+    'admin/portfolio/update/([0-9]+)' => 'admin/portfolio/update/$1',
+    'admin/portfolio/delete/([0-9]+)/ok' => 'admin/portfolio/delete/$1/1',
+    'admin/portfolio/delete/([0-9]+)' => 'admin/portfolio/delete/$1',
+    'admin/portfolio/([0-9]+)' => 'admin/portfolio/$1',
+    'admin/portfolio' => 'admin/portfolio/1',
+
     // Admin Blog
     'admin/blog/create' => 'admin/blog/create',
     'admin/blog/update/([0-9]+)' => 'admin/blog/update/$1',
@@ -43,6 +42,20 @@ return array(
     'admin/blog/([0-9]+)' => 'admin/blog/$1',
     'admin/blog' => 'admin/blog/1',
     'admin' => 'admin/index',
+
+    // portfolio
+    'portfolio/([0-9]+)' => 'portfolio/view/$1',
+    'portfolio' => 'portfolio/index',
+
+    // about
+    'about' => 'about/index',
+
+    // Service
+    'service/seo' => 'service/seo',
+    'service/web' => 'service/web',
+    'service/support' => 'service/support',
+    'service/mobile' => 'service/mobile',
+    'service' => 'service/index',
 
     // Blog
     'blog/view/([0-9]+)/([0-9]+)' => 'blog/view/$1/$2',

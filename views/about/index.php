@@ -4,7 +4,7 @@
 
             <div class="article">
                 <p><b><span style="font-size: 20px;color: #2a2d2e;">О компании</span></b></p>
-                <p><iframe class="limg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.209319342879!2d34.09005195135241!3d44.98005877353485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eae77cde14d4af%3A0x2dffa226260b14d2!2sIDEAS+WORLD!5e0!3m2!1sru!2sru!4v1460544416635" width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <p><iframe class="limg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.209319342879!2d34.09005195135241!3d44.98005877353485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eae77cde14d4af%3A0x2dffa226260b14d2!2sIDEAS+WORLD!5e0!3m2!1sru!2sru!4v1460544416635" width="650" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
                     <b><span style="font-size: 20px;color: #2a2d2e;">IDEAS WORLD</span></b>
                     <p>+7 (978) 015-69-15</p>
                 <p>info@ideas-world.net</p>

@@ -22,9 +22,13 @@
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/service">Услуги</a></li>
+                    <li><a href="/portfolio">Работы</a></li>
                     <li><a href="/blog">Блог</a></li>
                     <li><a href="/about">О компании</a></li>
                     <li><a href="/contacts">Написать нам</a></li>
+                    <?php if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword){ ?>
+                        <li><a href="/admin">Админка</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="clr"></div>

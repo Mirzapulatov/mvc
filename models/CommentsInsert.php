@@ -11,3 +11,4 @@
             $add->execute(array($name, $message, $id, time()));
             $msg = 'Успешно!';
         }
+return $msg;
