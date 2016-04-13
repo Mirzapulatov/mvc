@@ -1,6 +1,16 @@
 <?php
 
 return array(
+    // about
+    'about' => 'about/index',
+
+    // Service
+    'service/seo' => 'service/seo',
+    'service/web' => 'service/web',
+    'service/support' => 'service/support',
+    'service/mobile' => 'service/mobile',
+    'service' => 'service/index',
+
     // Admin Contacts
     'admin/contacts/view/([0-9]+)' => 'admin/contacts/view/$1',
     'admin/contacts/update/([0-9]+)' => 'admin/contacts/update/$1',
