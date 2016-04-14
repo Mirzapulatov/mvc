@@ -1,6 +1,11 @@
 <?php
+
+use models;
+
 include_once (ROOT."/models/Navigation.php");
 include_once (ROOT."/models/Checker.php");
+
+
 /**
  * Class AdminController
  * Admin Panel
@@ -16,7 +21,7 @@ class AdminController
             /**
              * Authorization admin
              */
-            include_once (ROOT."/models/Admin/Auth.php");
+            include_once(ROOT . "/controllers/Admin/Auth.php");
             include_once (ROOT."/views/Admin/AdminAuth.php");
         }
     }
@@ -30,11 +35,14 @@ class AdminController
     public function actionBlog($case,$id,$ok)
     {
         if($_SESSION['Admin']) {
+
             $checker = new Checker();
             $nav = new Navigation();
 
             $protect = true; // protect from user
-            include_once(ROOT . "/models/Admin/Blog.php");
+            include_once (ROOT."/models/Blog.php");
+            $blogModel = new models\Blog();
+            include_once(ROOT . "/controllers/Admin/Blog.php");
             include_once(ROOT . "/views/Admin/AdminBlog.php");
         }
     }
@@ -53,7 +61,9 @@ class AdminController
             $nav = new Navigation();
 
             $protect = true; // protect from user
-            include_once(ROOT . "/models/Admin/BlogComments.php");
+            include_once (ROOT."/models/Comments.php");
+            $commentsModel = new models\Comments();
+            include_once(ROOT . "/controllers/Admin/BlogComments.php");
             include_once(ROOT . "/views/Admin/AdminBlogComments.php");
         }
     }
@@ -70,7 +80,9 @@ class AdminController
             $nav = new Navigation();
 
             $protect = true; // protect from user
-            include_once(ROOT . "/models/Admin/News.php");
+            include_once (ROOT."/models/News.php");
+            $newsModel = new models\News();
+            include_once(ROOT . "/controllers/Admin/News.php");
             include_once(ROOT . "/views/Admin/AdminNews.php");
         }
     }
@@ -88,7 +100,9 @@ class AdminController
             $nav = new Navigation();
 
             $protect = true; // protect from user
-            include_once(ROOT . "/models/Admin/Contacts.php");
+            include_once (ROOT."/models/Contacts.php");
+            $contactsModel = new models\Contacts();
+            include_once(ROOT . "/controllers/Admin/Contacts.php");
             include_once(ROOT . "/views/Admin/AdminContacts.php");
         }
     }
@@ -106,7 +120,9 @@ class AdminController
             $nav = new Navigation();
 
             $protect = true; // protect from user
-            include_once(ROOT . "/models/Admin/Portfolio.php");
+            include_once (ROOT."/models/Portfolio.php");
+            $portfolioModel = new models\Portfolio();
+            include_once(ROOT . "/controllers/Admin/Portfolio.php");
             include_once(ROOT . "/views/Admin/AdminPortfolio.php");
         }
     }

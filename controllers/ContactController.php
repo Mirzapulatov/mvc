@@ -1,4 +1,5 @@
 <?php
+use models;
 
 class ContactController
 {
@@ -24,6 +25,25 @@ class ContactController
     {
         include_once (ROOT.'/models/Checker.php');
         $checker = new Checker();
-        return include_once (ROOT.'/models/ContactInsert.php');
+        if(!empty($_POST)) {
+            $msg = "";
+            if(!$checker->checkUserName($_POST['name'])) {
+                $msg = 'Ошибка имени. Имя должно состоять из латинских символов, а так же в диапазоне от 3 до 20 символов. <br/>';
+            }
+            if(!$checker->checkEmail($_POST['email'])){
+                $msg = sprintf("%s Ошибка почты. Образец: name@domain.com <br/>", $msg);
+            }
+            if(!$checker->stringLength($_POST['message'], 100, 5000)){
+                $msg = sprintf("%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов.<br/>", $msg);
+            }
+            if(empty($msg)){
+
+                include_once (ROOT.'/models/Contacts.php');
+                $contactsModel = new models\Contacts();
+                $contactsModel->create(array('name','email','message','time'),array($_POST['name'], $_POST['email'], $_POST['message'], time()));
+                $msg = "Успешно!";
+            }
+        }
+        return $msg;
     }
 }

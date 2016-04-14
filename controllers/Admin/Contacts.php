@@ -7,15 +7,15 @@ if ($protect) {
         default:
             $pagex = $case-1;
             $listCount = 30; //records per page
-            $query = DB::run()->query("SELECT * FROM contacts ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-            $count = DB::run()->query("SELECT * FROM contacts")->columnCount();
+            $query = $contactsModel->listRecord($listCount, $pagex);
+            $count = $contactsModel->total;
 
             break;
         /**
          * view record of contacts
          */
         case 'view':
-            $query = DB::run()->query("SELECT * FROM contacts WHERE id = $id");
+            $query = $contactsModel->getOne($id);
             $contacts = $query->fetch();
             $availability = $query->rowCount();
             break;
@@ -38,12 +38,11 @@ if ($protect) {
                     $msg = sprintf("%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов.<br/>", $msg);
                 }
                 if(empty($msg)){
-                    $add = DB::run()->prepare("UPDATE contacts SET name = ?, email = ?, message = ?, time = ? WHERE id = ?");
-                    $add->execute(array($_POST['name'], $_POST['email'], $_POST['message'], time(), $id));
+                    $contactsModel->update(array('name','email','message'),array($_POST['name'], $_POST['email'], $_POST['message']), 'id = '.$id);
                     $msg = "Успешно!";
                 }
             }
-            $query = DB::run()->query("SELECT * FROM contacts WHERE id = $id");
+            $query = $contactsModel->getOne($id);
             $contacts = $query->fetch();
             $availability = $query->rowCount();
             break;
@@ -51,11 +50,10 @@ if ($protect) {
          * delete record of contacts
          */
         case 'delete':
-            $query = DB::run()->query("SELECT * FROM contacts WHERE id = $id");
-            $availability = $query->rowCount();
+            $availability = $contactsModel->exist($id);
             if($availability) {
                 if ($ok) {
-                    DB::run()->query("Delete FROM contacts WHERE id = $id");
+                    $contactsModel->delete($id);
                 }
             }
 

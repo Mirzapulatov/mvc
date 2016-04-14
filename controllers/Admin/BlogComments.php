@@ -8,8 +8,8 @@ if ($protect) {
 
             $pagex = $case-1;
             $listCount = 30; //records per page
-            $query = DB::run()->query("SELECT * FROM bcomments WHERE id_blog = $idblog ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-            $count = DB::run()->query("SELECT * FROM bcomments WHERE id_blog = $idblog")->rowCount();
+            $query = $commentsModel->listRecord($listCount,$pagex,'id_blog ='.$idblog);
+            $count = $commentsModel->total('id_blog = '.$idblog);
 
             break;
         /**
@@ -22,11 +22,10 @@ if ($protect) {
                     $msg = 'Ошибка имени. Имя должно состоять из латинских символов, а так же в диапазоне от 3 до 20 символов. <br/>';
                 }
                 if (!$checker->stringLength($_POST['message'], 100, 5000)) {
-                    $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', Smsg);
+                    $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', $msg);
                 }
                 if (empty($msg)) {
-                    $add = DB::run()->prepare("INSERT INTO bcomments (name, message, id_blog, time) VALUES (?, ?, ?, ?)");
-                    $add->execute(array($_POST['name'], $_POST['message'], $idblog, time()));
+                    $commentsModel->create(array('name','message','id_blog','time'),array($_POST['name'], $_POST['message'], $idblog, time()));
                     $msg = 'Успешно!';
                 }
                 //return $msg;
@@ -42,27 +41,27 @@ if ($protect) {
                     $msg = 'Ошибка имени. Имя должно состоять из латинских символов, а так же в диапазоне от 3 до 20 символов. <br/>';
                 }
                 if (!$checker->stringLength($_POST['message'], 100, 5000)) {
-                    $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', Smsg);
+                    $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', $msg);
                 }
                 if (empty($msg)) {
-                    $add = DB::run()->prepare("UPDATE bcomments SET name = ?, message = ?, time = ? WHERE id = ?");
-                    $add->execute(array($_POST['name'], $_POST['message'], time(), $id));
+                    $commentsModel->update(array('name','message','id_blog','time'),array($_POST['name'], $_POST['message'], $idblog, time()),'id = '.$id);
+
                     $msg = 'Успешно!';
                 }
             }
-            $query = DB::run()->query("SELECT * FROM bcomments WHERE id = $id");
+            $query = $commentsModel->getOne($id);
             $blogComments = $query->fetch();
             $availability = $query->rowCount();
+
             break;
         /**
          * delete record of bcomments
          */
         case 'delete':
-            $query = DB::run()->query("SELECT * FROM bcomments WHERE id = $id");
-            $availability = $query->rowCount();
+            $availability = $commentsModel->exist($id);
             if($availability) {
                 if ($ok) {
-                    DB::run()->query("Delete FROM bcomments WHERE id = $id");
+                    $commentsModel->delete($id);
                 }
             }
 

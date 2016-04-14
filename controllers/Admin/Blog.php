@@ -1,4 +1,5 @@
 <?php
+
 if ($protect) {
     switch ($case) {
         /**
@@ -7,8 +8,8 @@ if ($protect) {
         default:
             $pagex = $case-1;
             $listCount = 30; //records per page
-            $query = DB::run()->query("SELECT * FROM blog ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-            $count = DB::run()->query("SELECT * FROM blog")->columnCount();
+            $query = $blogModel->listRecord($listCount,$pagex);
+            $count = $blogModel->total();
 
             break;
         /**
@@ -27,8 +28,7 @@ if ($protect) {
                     $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', Smsg);
                 }
                 if (empty($msg)) {
-                    $add = DB::run()->prepare("INSERT INTO blog (title, author, text, time) VALUES (?, ?, ?, ?)");
-                    $add->execute(array($_POST['title'], $_POST['author'], $_POST['text'], time()));
+                    $blogModel->create(array('title','author','text','time'), array($_POST['title'], $_POST['author'], $_POST['text'], time()));
                     $msg = 'Успешно!';
                 }
                 //return $msg;
@@ -50,12 +50,11 @@ if ($protect) {
                     $msg = sprintf('%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов. <br/>', Smsg);
                 }
                 if (empty($msg)) {
-                    $add = DB::run()->prepare("UPDATE blog SET title = ?, author = ?, text = ?, time = ? WHERE id = ?");
-                    $add->execute(array($_POST['title'], $_POST['author'], $_POST['text'], time(), $id));
+                    $blogModel->update(array('title','author','text','time'), array($_POST['title'], $_POST['author'], $_POST['text'], time()), 'id = '.$id);
                     $msg = 'Успешно!';
                 }
             }
-            $query = DB::run()->query("SELECT * FROM blog WHERE id = $id");
+            $query = $blogModel->getOne($id);
             $blog = $query->fetch();
             $availability = $query->rowCount();
             break;
@@ -63,11 +62,10 @@ if ($protect) {
          * delete record of blog
          */
         case 'delete':
-            $query = DB::run()->query("SELECT * FROM blog WHERE id = $id");
-            $availability = $query->rowCount();
+            $availability = $blogModel->exist($id);
             if($availability) {
                 if ($ok) {
-                    DB::run()->query("Delete FROM blog WHERE id = $id");
+                    $blogModel->delete($id);
                 }
             }
 

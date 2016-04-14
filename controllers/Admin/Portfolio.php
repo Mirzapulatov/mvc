@@ -7,8 +7,8 @@ if ($protect) {
         default:
             $pagex = $case - 1;
             $listCount = 30; //records per page
-            $query = DB::run()->query("SELECT * FROM portfolio ORDER BY id DESC LIMIT $listCount OFFSET $pagex*$listCount");
-            $count = DB::run()->query("SELECT * FROM portfolio")->columnCount();
+            $query = $portfolioModel->listRecord($listCount,$pagex);
+            $count = $portfolioModel->total();
             break;
         /**
          * create record of portfolio
@@ -44,8 +44,7 @@ if ($protect) {
                         copy($_FILES['screen']['tmp_name'], ROOT.'/common/files/portfolio/' . $name);
 
 
-                    $add = DB::run()->prepare("INSERT INTO portfolio (name, opis, img ) VALUES (?, ?, ?)");
-                    $add->execute(array($_POST['name'], $_POST['opis'], $name));
+                    $portfolioModel->create(array('name','opis','img'), array($_POST['name'], $_POST['opis'], $name));
                     $msg = 'Успешно!';
                 }
                 //return $msg;
@@ -82,11 +81,9 @@ if ($protect) {
                         $randu = rand(1000, 9999);
                         $name = time() . '' . $randu . '.' . $ext;
                         copy($_FILES['screen']['tmp_name'], ROOT . '/common/files/portfolio/' . $name);
-                        $add = DB::run()->prepare("UPDATE portfolio SET name = ?, opis = ?, img = ? WHERE id = ?");
-                        $add->execute(array($_POST['name'], $_POST['opis'], $name, $id));
+                        $portfolioModel->update(array('name','opis','img'), array($_POST['name'], $_POST['opis'], $name),'id = '.$id);
                     }else{
-                        $add = DB::run()->prepare("UPDATE portfolio SET name = ?, opis = ? WHERE id = ?");
-                        $add->execute(array($_POST['name'], $_POST['opis'], $id));
+                        $portfolioModel->update(array('name','opis'), array($_POST['name'], $_POST['opis']),'id = '.$id);
                     }
 
 
@@ -94,21 +91,18 @@ if ($protect) {
 
                 }
             }
-            $query = DB::run()->query("SELECT * FROM portfolio WHERE id = $id");
+            $query = $portfolioModel->getOne($id);
             $portfolio = $query->fetch();
             $availability = $query->rowCount();
             break;
         /**
-         * delete record of portfolio
+         * delete record of blog
          */
         case 'delete':
-            $query = DB::run()->query("SELECT * FROM portfolio WHERE id = $id");
-            $availability = $query->rowCount();
-            if ($availability) {
+            $availability = $portfolioModel->exist($id);
+            if($availability) {
                 if ($ok) {
-                    $portfolio = $query->fetch();
-                    @unlink(ROOT."/common/files/portfolio/".$portfolio['img']);
-                    DB::run()->query("Delete FROM portfolio WHERE id = $id");
+                    $portfolioModel->delete($id);
                 }
             }
 
