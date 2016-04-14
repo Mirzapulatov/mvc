@@ -9,7 +9,7 @@ class AdminController
 {
     public function actionIndex()
     {
-        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword){
+        if($_SESSION['Admin']) {
             // Admin home page
             include_once (ROOT."/views/Admin/AdminIndex.php");
         }else{
@@ -29,7 +29,7 @@ class AdminController
      */
     public function actionBlog($case,$id,$ok)
     {
-        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+        if($_SESSION['Admin']) {
             $checker = new Checker();
             $nav = new Navigation();
 
@@ -48,7 +48,7 @@ class AdminController
      */
     public function actionComments($idblog, $case, $id, $ok)
     {
-        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+        if($_SESSION['Admin']) {
             $checker = new Checker();
             $nav = new Navigation();
 
@@ -65,7 +65,7 @@ class AdminController
      */
     public function actionNews($case,$id,$ok)
     {
-        if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword) {
+        if($_SESSION['Admin']) {
             $checker = new Checker();
             $nav = new Navigation();
 
@@ -83,12 +83,14 @@ class AdminController
      */
     public function actionContacts($case,$id,$ok)
     {
-        $checker = new Checker();
-        $nav = new Navigation();
+        if($_SESSION['Admin']) {
+            $checker = new Checker();
+            $nav = new Navigation();
 
-        $protect = true; // protect from user
-        include_once (ROOT."/models/Admin/Contacts.php");
-        include_once (ROOT."/views/Admin/AdminContacts.php");
+            $protect = true; // protect from user
+            include_once(ROOT . "/models/Admin/Contacts.php");
+            include_once(ROOT . "/views/Admin/AdminContacts.php");
+        }
     }
 
     /**
@@ -99,11 +101,13 @@ class AdminController
      */
     public function actionPortfolio($case,$id,$ok)
     {
-        $checker = new Checker();
-        $nav = new Navigation();
+        if($_SESSION['Admin']) {
+            $checker = new Checker();
+            $nav = new Navigation();
 
-        $protect = true; // protect from user
-        include_once (ROOT."/models/Admin/Portfolio.php");
-        include_once (ROOT."/views/Admin/AdminPortfolio.php");
+            $protect = true; // protect from user
+            include_once(ROOT . "/models/Admin/Portfolio.php");
+            include_once(ROOT . "/views/Admin/AdminPortfolio.php");
+        }
     }
 }

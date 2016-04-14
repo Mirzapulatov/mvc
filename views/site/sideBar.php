@@ -6,12 +6,12 @@
     <div class="fbg_resize">
         <div class="col c1">
             <h2><span>Галерея</span></h2>
-            <a href="/common/images/gal1.jpg"><img src="/common/images/gal1.jpg" width="75" height="75" alt="" class="gal" /></a>
-            <a href="#"><img src="/common/images/gal2.jpg" width="75" height="75" alt="" class="gal" /></a>
-            <a href="#"><img src="/common/images/gal3.jpg" width="75" height="75" alt="" class="gal" /></a>
-            <a href="#"><img src="/common/images/gal4.jpg" width="75" height="75" alt="" class="gal" /></a>
-            <a href="#"><img src="/common/images/gal5.jpg" width="75" height="75" alt="" class="gal" /></a>
-            <a href="#"><img src="/common/images/gal6.jpg" width="75" height="75" alt="" class="gal" /></a> </div>
+            <a href="/portfolio/25"><img src="/common/files/portfolio/1.jpg" width="60" height="60" alt="" class="gal" /></a>
+            <a href="/portfolio/26"><img src="/common/files/portfolio/2.jpg" width="60" height="60" alt="" class="gal" /></a>
+            <a href="/portfolio/27"><img src="/common/files/portfolio/3.jpg" width="60" height="60" alt="" class="gal" /></a>
+            <a href="/portfolio/28"><img src="/common/files/portfolio/4.jpg" width="60" height="60" alt="" class="gal" /></a>
+            <a href="/portfolio/29"><img src="/common/files/portfolio/5.jpg" width="60" height="60" alt="" class="gal" /></a>
+            <a href="/portfolio/30"><img src="/common/files/portfolio/6.jpg" width="60" height="60" alt="" class="gal" /></a> </div>
         <div class="col c2">
             <h2><span>Партнеры </span></h2>
             <ul class="fbg_ul">

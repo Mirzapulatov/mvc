@@ -26,7 +26,7 @@
                     <li><a href="/blog">Блог</a></li>
                     <li><a href="/about">О компании</a></li>
                     <li><a href="/contacts">Написать нам</a></li>
-                    <?php if($_SESSION['AdminName'] == AdminName && $_SESSION['AdminPassword'] == AdminPassword){ ?>
+                    <?php if($_SESSION['Admin']) { ?>
                         <li><a href="/admin">Админка</a></li>
                     <?php } ?>
                 </ul>
