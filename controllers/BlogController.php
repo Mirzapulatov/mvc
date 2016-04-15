@@ -1,4 +1,6 @@
 <?php
+namespace controllers;
+use models;
 /**
  * Class BlogController
  * Show blog for user

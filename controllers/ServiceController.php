@@ -1,5 +1,5 @@
 <?php
-
+namespace controllers;
 class ServiceController
 {
     public function actionIndex()

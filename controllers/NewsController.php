@@ -1,4 +1,6 @@
 <?php
+namespace controllers;
+use models;
 class NewsController
 {
     /**
