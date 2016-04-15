@@ -4,7 +4,7 @@
             <?php $i=0; while($portfolio = $result->fetch()){ ?>
 
                 <div style="float: left;width:32%;text-align: center;">
-                    <h2><span><?php echo $checker->CheckXSS($portfolio['name']);?></span></h2>
+                    <h2><span><?php echo $checker->CheckXSS($checker->resizeString($portfolio['name'], 20, ":"));?></span></h2>
                     <a href="/portfolio/<?php echo $portfolio['id'] ?>">
                             <img src="/common/files/portfolio/<?php echo $portfolio['img']; ?>" width="90%" alt=""  />
                         </a>

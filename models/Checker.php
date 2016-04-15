@@ -68,9 +68,9 @@ class Checker
      * Resize string
      * @return string
      */
-    public function resizeString($str,$max)
+    public function resizeString($str, $max, $postfix = "...")
     {
-        return mb_substr($str, 0, $max, 'UTF-8') . '...';
+        return mb_substr($str, 0, $max, 'UTF-8') . $postfix;
     }
 
 
