@@ -10,9 +10,9 @@ class DB
     public static function run()
     {
         try {
-            include (ROOT."/config/DB.php");
             if(self::$db==NULL)
-            self::$db = new \PDO("pgsql:host=$host;dbname=$dbname;", $dbuser, $dbpass);
+            self::$db = new \PDO("pgsql:host=".\Registry::getConfig('host').";dbname=".\Registry::getConfig('dbname').";",
+                \Registry::getConfig('dbuser'), \Registry::getConfig('dbpass'));
             return self::$db;
         }catch (PDOException $e){
             die("Connection error: ".$e->getMessage());
