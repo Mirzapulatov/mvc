@@ -4,3 +4,5 @@ common/
 test/
 config/DB.php
 aaa/
+
+/vendor/

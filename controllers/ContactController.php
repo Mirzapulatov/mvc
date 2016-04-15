@@ -1,10 +1,4 @@
 <?php
-
-include_once (ROOT.'/models/Checker.php');
-include_once (ROOT.'/models/Contacts.php');
-
-use models as models;
-
 class ContactController
 {
     /**
@@ -27,7 +21,7 @@ class ContactController
      */
     private function insert($name,$email,$message)
     {
-        $checker = new Checker();
+        $checker = new models\Checker();
         if(!empty($_POST)) {
             $msg = "";
             if(!$checker->checkUserName($_POST['name'])) {

@@ -1,5 +1,5 @@
 <?php
-
+namespace models;
 /**
  * Class to test data
  * @author RGame

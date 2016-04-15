@@ -1,4 +1,6 @@
 <?php
+namespace models;
+
 Class Navigation
 {
     /**

@@ -1,10 +1,4 @@
 <?php
-include_once(ROOT . '/models/Navigation.php');
-include_once(ROOT . '/models/Checker.php');
-include_once(ROOT . '/models/News.php');
-
-use models as models;
-
 class NewsController
 {
     /**
@@ -12,8 +6,8 @@ class NewsController
      */
     public function actionList($page)
     {
-        $nav = new Navigation();
-        $checker = new Checker();
+        $nav = new models\Navigation();
+        $checker = new models\Checker();
         $pagex = $page-1;
         $listCount = 3;
         $newsModel = new models\News();
@@ -29,14 +23,14 @@ class NewsController
     public function actionView($id)
     {
         $newsModel = new models\News();
-        $verif = strripos($_SESSION['newsView'], "|$id|");
+        $verif = @strripos($_SESSION['newsView'], "|$id|");
         if ($verif === false) { // If id is not found, then add view
             $newsModel->increase(array('views'),1, '+', 'id = '.$id);
-            $_SESSION['newsView'] .= "|$id|";
+            @$_SESSION['newsView'] .= "|$id|";
         }
         $result = $newsModel->getOne($id);
         $getNews = $result->fetch();
-        $checker = new Checker();
+        $checker = new models\Checker();
         include_once(ROOT . '/views/news/News.php');
     }
 

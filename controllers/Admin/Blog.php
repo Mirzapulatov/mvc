@@ -1,5 +1,4 @@
 <?php
-
 if ($protect) {
     switch ($case) {
         /**

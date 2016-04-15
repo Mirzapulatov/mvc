@@ -1,10 +1,4 @@
 <?php
-include_once (ROOT.'/models/Checker.php');
-include_once (ROOT.'/models/Navigation.php');
-include_once(ROOT . '/models/Comments.php');
-
-use models as models;
-
 class CommentsController
 {
     /**
@@ -23,8 +17,8 @@ class CommentsController
         $result = $commentsModel->listRecord($listCount, $pagex, 'id_blog = '.$id);
         $count = $commentsModel->total($id);
 
-        $nav = new Navigation();
-        $checker = new Checker();
+        $nav = new models\Navigation();
+        $checker = new models\Checker();
 
         include_once ROOT . '/views/blog/Comments.php';
     }
@@ -40,7 +34,7 @@ class CommentsController
     private function insert($name, $message, $id)
     {
         include_once (ROOT.'/models/Checker.php');
-        $checker = new Checker();
+        $checker = new models\Checker();
         $commentsModel = new models\Comments();
         if(!empty($_POST)) {
             $msg = "";

@@ -15,7 +15,7 @@ abstract class ORModel
     {
         if($id) { $this->table = sprintf('%s WHERE %s', $this->table, $id);}
         $query = sprintf("SELECT * FROM %s ORDER BY id DESC LIMIT %s OFFSET %s",$this->table,$listCount,($pagex*$listCount));
-        return \DB::run()->query($query);
+        return DB::run()->query($query);
     }
 
     /**
@@ -27,7 +27,7 @@ abstract class ORModel
     {
         $query = sprintf("SELECT id FROM %s",$this->table);
         if($id) { $query = sprintf('%s', $query, $id); }
-        return \DB::run()->query($query)->rowCount();
+        return DB::run()->query($query)->rowCount();
     }
 
     /**
@@ -37,7 +37,7 @@ abstract class ORModel
      */
     public function getOne($id)
     {
-        return \DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
+        return DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
     }
 
     /**
@@ -47,7 +47,7 @@ abstract class ORModel
      */
     public function exist($id)
     {
-        $query = \DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
+        $query = DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
         return $query->rowCount();
     }
 
@@ -59,7 +59,7 @@ abstract class ORModel
     public function create(array $field , array $parameter)
     {
         $colField = trim(str_pad("", (count($field)*2),"?,"),",");
-        $add = \DB::run()->prepare("INSERT INTO $this->table (".implode(",",$field).") VALUES ($colField)");
+        $add = DB::run()->prepare("INSERT INTO $this->table (".implode(",",$field).") VALUES ($colField)");
         $add->execute($parameter);
     }
 
@@ -72,7 +72,7 @@ abstract class ORModel
     public function update(array $field , array $parameter, $where)
     {
         $query = sprintf("UPDATE %s SET %s WHERE %s", $this->table, implode("= ? ,", $field).' = ?', $where);
-        $add = \DB::run()->prepare($query);
+        $add = DB::run()->prepare($query);
         $add->execute($parameter);
     }
 
@@ -82,7 +82,7 @@ abstract class ORModel
      */
     public function delete($id)
     {
-        \DB::run()->query("DELETE FROM $this->table WHERE id = $id");
+        DB::run()->query("DELETE FROM $this->table WHERE id = $id");
     }
 
     /**
@@ -100,7 +100,7 @@ abstract class ORModel
         }
         $query = trim($query,",");
         $query = sprintf("UPDATE %s SET %s WHERE %s", $this->table, $query, $where);
-        \DB::run()->query($query);
+        DB::run()->query($query);
 
     }
 }

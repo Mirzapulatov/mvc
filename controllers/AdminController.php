@@ -1,10 +1,4 @@
 <?php
-
-include_once (ROOT."/models/Navigation.php");
-include_once (ROOT."/models/Checker.php");
-
-use models as models;
-
 /**
  * Class AdminController
  * Admin Panel
@@ -34,11 +28,10 @@ class AdminController
     public function actionBlog($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
-            $checker = new Checker();
-            $nav = new Navigation();
+            $checker = new models\Checker();
+            $nav = new models\Navigation();
 
             $protect = true; // protect from user
-            include_once (ROOT."/models/Blog.php");
             $blogModel = new models\Blog();
             include_once(ROOT . "/controllers/Admin/Blog.php");
             include_once(ROOT . "/views/Admin/AdminBlog.php");
@@ -55,8 +48,8 @@ class AdminController
     public function actionComments($idblog, $case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
-            $checker = new Checker();
-            $nav = new Navigation();
+            $checker = new models\Checker();
+            $nav = new models\Navigation();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Comments.php");
@@ -74,8 +67,8 @@ class AdminController
     public function actionNews($case,$id = NULL,$ok = NULL)
     {
         if($_SESSION['Admin']) {
-            $checker = new Checker();
-            $nav = new Navigation();
+            $checker = new models\Checker();
+            $nav = new models\Navigation();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/News.php");
@@ -94,8 +87,8 @@ class AdminController
     public function actionContacts($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
-            $checker = new Checker();
-            $nav = new Navigation();
+            $checker = new models\Checker();
+            $nav = new models\Navigation();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Contacts.php");
@@ -114,8 +107,8 @@ class AdminController
     public function actionPortfolio($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
-            $checker = new Checker();
-            $nav = new Navigation();
+            $checker = new models\Checker();
+            $nav = new models\Navigation();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Portfolio.php");

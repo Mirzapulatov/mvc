@@ -1,10 +1,4 @@
 <?php
-include_once(ROOT . '/models/Navigation.php');
-include_once(ROOT . '/models/Checker.php');
-include_once(ROOT . '/models/Blog.php');
-
-use models as models;
-
 /**
  * Class BlogController
  * Show blog for user
@@ -17,8 +11,8 @@ class BlogController
      */
     public function actionList($page)
     {
-        $nav = new Navigation();
-        $checker = new Checker();
+        $nav = new models\Navigation();
+        $checker = new models\Checker();
 
         $pagex = $page-1;
         $listCount = 3; //records per page
@@ -37,14 +31,14 @@ class BlogController
     public function actionView($id,$page)
     {
         $blogModel = new models\Blog();
-        $verif = strripos($_SESSION['blogView'], "|$id|"); // search BlogId in string
+        $verif = @strripos($_SESSION['blogView'], "|$id|"); // search BlogId in string
         if ($verif === false) { // If id is not found, then add view
             $blogModel->increase(array('views'), 1,'+', 'id ='. $id);
-            $_SESSION['blogView'] .= "|$id|";
+            @$_SESSION['blogView'] .= "|$id|";
         }
         $result = $blogModel->getOne($id);
         $getBlog = $result->fetch();
-        $checker = new Checker();
+        $checker = new models\Checker();
         include_once(ROOT . '/views/blog/BlogView.php');
 
         include_once (ROOT.'/controllers/CommentsController.php');
