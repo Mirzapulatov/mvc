@@ -18,7 +18,7 @@
             <div class="logo">
                 <h1><a href="/">MVC <span>site</span> <small>Company Ideas World</small></a></h1>
             </div>
-            <div class="menu_nav">
+            <nav class="menu_nav">
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/service">Услуги</a></li>
@@ -30,7 +30,7 @@
                         <li><a href="/admin">Админка</a></li>
                     <?php } ?>
                 </ul>
-            </div>
+            </nav>
             <div class="clr"></div>
             <!--<div class="slider">
                 <div id="coin-slider"><a href="#"><img src="/design/images/slide1.jpg" width="935" height="307" alt="" /></a> <a href="#"><img src="/design/images/slide2.jpg" width="935" height="307" alt="" /></a> <a href="#"><img src="/design/images/slide3.jpg" width="935" height="307" alt="" /></a></div>

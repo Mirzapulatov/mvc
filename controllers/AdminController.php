@@ -5,7 +5,7 @@ use models;
  * Class AdminController
  * Admin Panel
  */
-class AdminController
+class AdminController //TODO move all unrelated to admin to other controllers
 {
     public function actionIndex()
     {
@@ -16,7 +16,7 @@ class AdminController
             /**
              * Authorization admin
              */
-            include_once(ROOT . "/controllers/Admin/Auth.php");
+            include_once(ROOT . "/controllers/Admin/Auth.php"); //TODO create separate controller for authentication. return redirect response
             include_once (ROOT."/views/Admin/AdminAuth.php");
         }
     }
@@ -29,6 +29,7 @@ class AdminController
      */
     public function actionBlog($case, $id = NULL, $ok = NULL)
     {
+        
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
             $nav = new models\Navigation();

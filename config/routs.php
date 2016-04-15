@@ -67,7 +67,6 @@ return array(
     'contacts' => 'contact/view',
 
     // News
-    'list/([0-9]+)' => 'news/list/$1',
+    'list' => 'news/list',
     'news/([0-9]+)' => 'news/view/$1',
-    '' => 'news/list/1'
 );

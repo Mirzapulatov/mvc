@@ -1,25 +1,29 @@
 <?php
 namespace controllers;
+
 use models;
-class NewsController
+
+class NewsController extends Controller
 {
     /**
-     * @param int $page page of news
+     *
      */
-    public function actionList($page)
+    public function actionList()
     {
+        $page = $this->getQueryParameter('page', 1); //TODO think about this
         $nav = new models\Navigation();
         $checker = new models\Checker();
-        $pagex = $page-1;
+        $pagex = $page - 1;
         $listCount = 3;
         $newsModel = new models\News();
-        $result = $newsModel->listRecord($listCount,$pagex);
+        $result = $newsModel->listRecord($listCount, $pagex);
         $count = $newsModel->total();
         include_once(ROOT . '/views/news/index.php');
     }
 
     /**
      * view one news
+     *
      * @param $id id of news
      */
     public function actionView($id)
@@ -27,7 +31,7 @@ class NewsController
         $newsModel = new models\News();
         $verif = @strripos($_SESSION['newsView'], "|$id|");
         if ($verif === false) { // If id is not found, then add view
-            $newsModel->increase(array('views'),1, '+', 'id = '.$id);
+            $newsModel->increase(['views'], 1, '+', 'id = ' . $id);
             @$_SESSION['newsView'] .= "|$id|";
         }
         $result = $newsModel->getOne($id);

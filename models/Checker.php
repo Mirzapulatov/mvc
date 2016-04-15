@@ -1,12 +1,24 @@
 <?php
 namespace models;
+
+use services\validation\constraints\Constraint;
+
 /**
  * Class to test data
  * @author RGame
  * @version 1.0
  */
-class Checker
+class Checker //TODO rename to Validator. All functions move to a separate classes
 {
+    public function validate($value, array $constraints = []) {
+        foreach ($constraints as $constraint) {
+            if (!$constraint instanceof Constraint) {
+                //TODo throw type exception
+            }
+            $constraint->validate($value);
+        }
+    }
+
     /**
      * Checking the login
      * @param $text login to check
