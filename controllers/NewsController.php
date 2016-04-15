@@ -3,7 +3,7 @@ include_once(ROOT . '/models/Navigation.php');
 include_once(ROOT . '/models/Checker.php');
 include_once(ROOT . '/models/News.php');
 
-use models;
+use models as models;
 
 class NewsController
 {

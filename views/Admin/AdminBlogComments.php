@@ -17,8 +17,8 @@ if ($protect) { //protect from user ?>
                         <?php } while ($blogComments = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $blogComments['id']; ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($blogComments['name'], 20)); ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($blogComments['message'], 50)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($blogComments['name'], 20)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($blogComments['message'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $blogComments['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $blogComments['id']; ?>">Edit</a>

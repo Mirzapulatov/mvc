@@ -1,21 +1,25 @@
 <?php
-
 include_once(ROOT . '/models/Navigation.php');
 include_once(ROOT . '/models/Checker.php');
 include_once(ROOT . '/models/Blog.php');
 
-use models;
+use models as models;
 
+/**
+ * Class BlogController
+ * Show blog for user
+ */
 class BlogController
 {
     /**
      * Blog list
+     * @param int $page
      */
     public function actionList($page)
     {
-
         $nav = new Navigation();
         $checker = new Checker();
+
         $pagex = $page-1;
         $listCount = 3; //records per page
         $blogModel = new models\Blog();
@@ -26,7 +30,9 @@ class BlogController
     }
 
     /**
-     * Blog view
+     * view blog
+     * @param int $id
+     * @param int $page
      */
     public function actionView($id,$page)
     {

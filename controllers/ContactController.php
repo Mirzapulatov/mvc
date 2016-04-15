@@ -1,5 +1,8 @@
 <?php
-use models;
+
+include_once (ROOT.'/models/Checker.php');
+
+use models as models;
 
 class ContactController
 {
@@ -23,7 +26,6 @@ class ContactController
      */
     private function insert($name,$email,$message)
     {
-        include_once (ROOT.'/models/Checker.php');
         $checker = new Checker();
         if(!empty($_POST)) {
             $msg = "";
@@ -37,8 +39,6 @@ class ContactController
                 $msg = sprintf("%s Ошибка сообщения. Сообщение должно состоять из 100-5000 символов.<br/>", $msg);
             }
             if(empty($msg)){
-
-                include_once (ROOT.'/models/Contacts.php');
                 $contactsModel = new models\Contacts();
                 $contactsModel->create(array('name','email','message','time'),array($_POST['name'], $_POST['email'], $_POST['message'], time()));
                 $msg = "Успешно!";

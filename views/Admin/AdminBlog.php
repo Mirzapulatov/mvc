@@ -14,8 +14,8 @@ if ($protect) { //protect from user ?>
                         <?php while ($blog = $query->fetch()) { ?>
                             <tr>
                                 <td><?php echo $blog['id']; ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($blog['title'], 20)); ?></td>
-                                <td><?php echo $checker->resizeString($checker->CheckXSS($blog['text'], 50)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($blog['title'], 20)); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($blog['text'], 50)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $blog['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $blog['id']; ?>">Изменить</a>

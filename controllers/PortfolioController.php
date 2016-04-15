@@ -1,8 +1,9 @@
 <?php
 include_once(ROOT . '/models/Navigation.php');
 include_once(ROOT . '/models/Checker.php');
+include_once (ROOT."/models/Portfolio.php");
 
-use models;
+use models as models;
 
 class PortfolioController
 {
@@ -10,7 +11,7 @@ class PortfolioController
     {
         $nav = new Navigation();
         $checker = new Checker();
-        include_once (ROOT."/models/Portfolio.php");
+
         $portfolioModel = new models\Portfolio();
         $result = $portfolioModel->listRecord(100,0);
         include_once (ROOT."/views/portfolio/index.php");
@@ -20,7 +21,6 @@ class PortfolioController
     {
 
         $checker = new Checker();
-        include_once (ROOT."/models/Portfolio.php");
         $portfolioModel = new models\Portfolio();
 
         $portfolio = $portfolioModel->getOne($id)->fetch();

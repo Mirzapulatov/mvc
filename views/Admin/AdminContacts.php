@@ -15,7 +15,7 @@ if ($protect) { //protect from user ?>
                                 <td><?php echo $contacts['id']; ?></td>
                                 <td><?php echo $contacts['name']; ?></td>
                                 <td><?php echo $contacts['email']; ?></td>
-                                <td><?php echo $checker->resizeString($contacts['message'], 200); ?></td>
+                                <td><?php echo $checker->CheckXSS($checker->resizeString($contacts['message'], 200)); ?></td>
                                 <td><?php echo date("H:i:s d.m.Y", $contacts['time']); ?></td>
                                 <td>
                                     <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/view/<?php echo $contacts['id']; ?>">Просмтотреть</a>

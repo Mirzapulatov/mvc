@@ -1,10 +1,9 @@
 <?php
 
-use models;
-
 include_once (ROOT."/models/Navigation.php");
 include_once (ROOT."/models/Checker.php");
 
+use models as models;
 
 /**
  * Class AdminController
@@ -32,10 +31,9 @@ class AdminController
      * @param int $id id record
      * @param int $ok delete confirmation
      */
-    public function actionBlog($case,$id,$ok)
+    public function actionBlog($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
-
             $checker = new Checker();
             $nav = new Navigation();
 
@@ -54,7 +52,7 @@ class AdminController
      * @param int $id id record
      * @param int $ok delete confirmation
      */
-    public function actionComments($idblog, $case, $id, $ok)
+    public function actionComments($idblog, $case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
             $checker = new Checker();
@@ -93,7 +91,7 @@ class AdminController
      * @param int $id id record
      * @param int $ok delete confirmation
      */
-    public function actionContacts($case,$id,$ok)
+    public function actionContacts($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
             $checker = new Checker();
@@ -113,7 +111,7 @@ class AdminController
      * @param int $id id record
      * @param int $ok delete confirmation
      */
-    public function actionPortfolio($case,$id,$ok)
+    public function actionPortfolio($case, $id = NULL, $ok = NULL)
     {
         if($_SESSION['Admin']) {
             $checker = new Checker();

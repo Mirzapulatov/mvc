@@ -3,7 +3,7 @@ include_once (ROOT.'/models/Checker.php');
 include_once (ROOT.'/models/Navigation.php');
 include_once(ROOT . '/models/Comments.php');
 
-use models;
+use models as models;
 
 class CommentsController
 {
