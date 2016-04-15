@@ -1,6 +1,7 @@
 <?php
 
 include_once (ROOT.'/models/Checker.php');
+include_once (ROOT.'/models/Contacts.php');
 
 use models as models;
 

@@ -8,7 +8,7 @@ if ($protect) {
             $pagex = $case-1;
             $listCount = 30; //records per page
             $query = $contactsModel->listRecord($listCount, $pagex);
-            $count = $contactsModel->total;
+            $count = $contactsModel->total();
 
             break;
         /**

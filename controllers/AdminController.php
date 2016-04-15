@@ -71,7 +71,7 @@ class AdminController
      * @param int $id id record
      * @param int $ok delete confirmation
      */
-    public function actionNews($case,$id,$ok)
+    public function actionNews($case,$id = NULL,$ok = NULL)
     {
         if($_SESSION['Admin']) {
             $checker = new Checker();

@@ -11,7 +11,6 @@
                 <div class="article" style="text-align: center">
 
                     <p class="infopost"><?php echo $checker->CheckXSS($portfolio['name']); ?>
-                        <a href="#" class="com"><span><?php echo $portfolio['views']; ?></span></a></p>
                     <div class="clr"></div>
 
                     <img src="/common/files/portfolio/<?php echo $portfolio['img']; ?>" width="90%" alt="" class="fl"/>
