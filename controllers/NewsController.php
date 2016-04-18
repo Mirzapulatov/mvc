@@ -1,6 +1,5 @@
 <?php
 namespace controllers;
-
 use models;
 
 class NewsController extends Controller
@@ -8,10 +7,10 @@ class NewsController extends Controller
     /**
      *
      */
-    public function actionList()
+    public function actionList($page = 1)
     {
-        $page = $this->getQueryParameter('page', 1); //TODO think about this
-        $nav = new models\Navigation();
+        //$page = $this->get('page', 1); //TODO think about this
+        $nav = new models\Pagination();
         $checker = new models\Checker();
         $pagex = $page - 1;
         $listCount = 3;

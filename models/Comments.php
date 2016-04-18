@@ -7,6 +7,6 @@ class Comments extends ORModel
 {
     function __construct()
     {
-        $this->table = "blog_comments";
+        $this->setTable("bcomments");
     }
 }

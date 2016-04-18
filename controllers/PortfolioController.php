@@ -5,7 +5,7 @@ class PortfolioController
 {
     public function actionIndex()
     {
-        $nav = new models\Navigation();
+        $nav = new models\Pagination();
         $checker = new models\Checker();
 
         $portfolioModel = new models\Portfolio();

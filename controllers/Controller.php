@@ -5,16 +5,22 @@
  * Date: 15.04.16
  * Time: 15:34
  */
-
 namespace controllers;
 
 
 abstract class Controller
 {
-    protected function denyAccessUnlessGranted($role)
+    public function accessAdmin()
     {
-        //TODO check if current user is logged in
-
+        if(!isset($_SESSION['Admin']))
+        {
+            header("Location: /");
+            exit();
+        }
+    }
+    public static function checkAdmin()
+    {
+        return isset($_SESSION['Admin']);
     }
 
     /**
@@ -26,5 +32,13 @@ abstract class Controller
     protected function getQueryParameter($name, $defaultValue = null)
     {
         return $_GET[$name] ? $_GET[$name] : $defaultValue;
+    }
+
+    public function show($view)
+    {
+        $path = ROOT.'/views/'.$view.'.php';
+        if(is_readable($path)) {
+            include_once $path;
+        }
     }
 }

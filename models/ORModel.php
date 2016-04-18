@@ -6,23 +6,22 @@ abstract class ORModel
     //TODO save property correspondence
 
     /** @var  string */
-    private $table; //TODO rename to tableName
+    private $tableName;
 
     /**
      * @return mixed
      */
     public function getTable()
     {
-        return $this->table;
+        return $this->tableName;
     }
-
     /**
-     * @param mixed $table
+     * @param mixed $tableName
      */
-    public function setTable($table)
+    public function setTable($tableName)
     {
-        //TODO validate is string
-        $this->table = $table;
+        if(is_string($tableName))
+        $this->tableName = $tableName;
     }
 
     /**
@@ -37,11 +36,11 @@ abstract class ORModel
     public function listRecord($listCount, $pagex, $condition = null)
     {
         if ($condition) {
-            $this->table = sprintf('%s WHERE %s', $this->table, $condition);
+            $this->tableName = sprintf('%s WHERE %s', $this->tableName, $condition);
         }
         $query = sprintf(
             "SELECT * FROM %s ORDER BY id DESC LIMIT %s OFFSET %s",
-            $this->table,
+            $this->tableName,
             $listCount,
             ($pagex * $listCount)
         );
@@ -58,11 +57,10 @@ abstract class ORModel
      */
     public function total($id = null)
     {
-        $query = sprintf("SELECT id FROM %s", $this->table);
+        $query = sprintf("SELECT id FROM %s", $this->tableName);
         if ($id) {
             $query = sprintf('%s', $query, $id);
         }
-
         return DB::run()->query($query)->rowCount();
     }
 
@@ -75,7 +73,7 @@ abstract class ORModel
      */
     public function getOne($id)
     {
-        return DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
+        return DB::run()->query("SELECT * FROM $this->tableName WHERE id = $id");
     }
 
     /**
@@ -85,7 +83,7 @@ abstract class ORModel
      */
     public function exist($id)
     {
-        $query = DB::run()->query("SELECT * FROM $this->table WHERE id = $id");
+        $query = DB::run()->query("SELECT * FROM $this->tableName WHERE id = $id");
 
         return $query->rowCount();
     }
@@ -99,7 +97,7 @@ abstract class ORModel
     public function create(array $field, array $values)// TODO pass model object
     {
         $colField = trim(str_pad("", (count($field) * 2), "?,"), ",");
-        $add = DB::run()->prepare("INSERT INTO $this->table (" . implode(",", $field) . ") VALUES ($colField)");
+        $add = DB::run()->prepare("INSERT INTO $this->tableName (" . implode(",", $field) . ") VALUES ($colField)");
         $add->execute($values);
     }
 
@@ -112,7 +110,7 @@ abstract class ORModel
      */
     public function update(array $field, array $parameter, $where)
     {
-        $query = sprintf("UPDATE %s SET %s WHERE %s", $this->table, implode("= ? ,", $field) . ' = ?', $where);
+        $query = sprintf("UPDATE %s SET %s WHERE %s", $this->tableName, implode("= ? ,", $field) . ' = ?', $where);
         $add = DB::run()->prepare($query);
         $add->execute($parameter);
     }
@@ -124,7 +122,7 @@ abstract class ORModel
      */
     public function delete($id)
     {
-        DB::run()->query("DELETE FROM $this->table WHERE id = $id");
+        DB::run()->query("DELETE FROM $this->tableName WHERE id = $id");
     }
 
     /**
@@ -142,7 +140,7 @@ abstract class ORModel
             $query = sprintf("%s, %s = %s %s %s", $query, $field[$i], $field[$i], $operation, $parameter);
         }
         $query = trim($query, ",");
-        $query = sprintf("UPDATE %s SET %s WHERE %s", $this->table, $query, $where);
+        $query = sprintf("UPDATE %s SET %s WHERE %s", $this->tableName, $query, $where);
         DB::run()->query($query);
 
     }

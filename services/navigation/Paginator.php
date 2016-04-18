@@ -1,16 +1,20 @@
 <?php
-namespace models;
+/**
+ * Created by PhpStorm.
+ * User: kirill
+ * Date: 18.04.16
+ * Time: 10:28
+ */
+namespace services\navigation;
 
-Class Navigation //TODO Pagination
+class Paginator
 {
     /**
      * Pagination
-     *
      * @param string $module
      * @param int    $current
      * @param int    $limit
      * @param int    $listCount
-     *
      * @return string
      */
     public function leafThrough($module, $current, $limit, $listCount)
@@ -26,7 +30,6 @@ Class Navigation //TODO Pagination
                 $str = sprintf('%s <a href="/' . $module . '/' . $i . '">' . $i . '</a>', $str);
             }
         }
-
         return $str . '</p>';
     }
 }

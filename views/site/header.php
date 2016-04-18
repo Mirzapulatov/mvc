@@ -18,24 +18,19 @@
             <div class="logo">
                 <h1><a href="/">MVC <span>site</span> <small>Company Ideas World</small></a></h1>
             </div>
-            <nav class="menu_nav">
+            <div class="menu_nav">
                 <ul>
-                    <li><a href="/">Главная</a></li>
+                    <li><a href="/news">Новости</a></li>
                     <li><a href="/service">Услуги</a></li>
                     <li><a href="/portfolio">Работы</a></li>
                     <li><a href="/blog">Блог</a></li>
                     <li><a href="/about">О компании</a></li>
                     <li><a href="/contacts">Написать нам</a></li>
-                    <?php if($_SESSION['Admin']) { ?>
+                    <?php if(isset($_SESSION['Admin'])) { ?>
                         <li><a href="/admin">Админка</a></li>
                     <?php } ?>
                 </ul>
-            </nav>
-            <div class="clr"></div>
-            <!--<div class="slider">
-                <div id="coin-slider"><a href="#"><img src="/design/images/slide1.jpg" width="935" height="307" alt="" /></a> <a href="#"><img src="/design/images/slide2.jpg" width="935" height="307" alt="" /></a> <a href="#"><img src="/design/images/slide3.jpg" width="935" height="307" alt="" /></a></div>
-                <div class="clr"></div>
-            </div>-->
-            <div class="clr"></div>
+            </div>
+
         </div>
     </div>

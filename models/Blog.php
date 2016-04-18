@@ -7,8 +7,6 @@ class Blog extends ORModel
 {
     /** @var  int */
     private $id;
-    
-    
 
     function __construct()
     {

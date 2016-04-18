@@ -9,15 +9,14 @@ class AdminController //TODO move all unrelated to admin to other controllers
 {
     public function actionIndex()
     {
-        if($_SESSION['Admin']) {
+        if(isset($_SESSION['Admin'])) {
             // Admin home page
             include_once (ROOT."/views/Admin/AdminIndex.php");
         }else{
             /**
              * Authorization admin
              */
-            include_once(ROOT . "/controllers/Admin/Auth.php"); //TODO create separate controller for authentication. return redirect response
-            include_once (ROOT."/views/Admin/AdminAuth.php");
+            header("Location: /auth");
         }
     }
 
@@ -32,7 +31,7 @@ class AdminController //TODO move all unrelated to admin to other controllers
         
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
-            $nav = new models\Navigation();
+            $nav = new models\Pagination();
 
             $protect = true; // protect from user
             $blogModel = new models\Blog();
@@ -52,7 +51,7 @@ class AdminController //TODO move all unrelated to admin to other controllers
     {
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
-            $nav = new models\Navigation();
+            $nav = new models\Pagination();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Comments.php");
@@ -71,7 +70,7 @@ class AdminController //TODO move all unrelated to admin to other controllers
     {
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
-            $nav = new models\Navigation();
+            $nav = new models\Pagination();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/News.php");
@@ -91,7 +90,7 @@ class AdminController //TODO move all unrelated to admin to other controllers
     {
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
-            $nav = new models\Navigation();
+            $nav = new models\Pagination();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Contacts.php");
@@ -111,7 +110,7 @@ class AdminController //TODO move all unrelated to admin to other controllers
     {
         if($_SESSION['Admin']) {
             $checker = new models\Checker();
-            $nav = new models\Navigation();
+            $nav = new models\Pagination();
 
             $protect = true; // protect from user
             include_once (ROOT."/models/Portfolio.php");
