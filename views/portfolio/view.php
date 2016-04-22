@@ -10,12 +10,12 @@
                 <td style="width: 80%">
                 <div class="article" style="text-align: center">
 
-                    <p class="infopost"><?php echo $checker->CheckXSS($portfolio['name']); ?>
+                    <p class="infopost"><?php echo $change->CheckXSS($portfolio['name']); ?>
                     <div class="clr"></div>
 
                     <img src="/common/files/portfolio/<?php echo $portfolio['img']; ?>" width="90%" alt="" class="fl"/>
 
-                        <p><?php echo $checker->CheckXSS($portfolio['opis']); ?></p>
+                        <p><?php echo $change->CheckXSS($portfolio['opis']); ?></p>
 
                     <!-- Shared -->
                     <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>

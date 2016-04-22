@@ -21,9 +21,9 @@ class Paginator
     {
         $limit = ceil($limit / $listCount);
         $minPage = max($current - 2, 1);
-        $maxPage = min($minPage + 5, $limit);
+        $maxPage = min($minPage + 4, $limit);
         $str = '<p class="pages"><small>Page ' . $current . ' of ' . $limit . '</small>';
-        for ($i = $minPage; $i < $maxPage; $i++) {
+        for ($i = $minPage; $i <= $maxPage; $i++) {
             if ($i == $current) {
                 $str = sprintf('%s <span>' . $i . '</span>', $str);
             } else {

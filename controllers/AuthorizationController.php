@@ -17,6 +17,13 @@ class AuthorizationController
         }
         include_once (ROOT."/views/auth/Auth.php");
     }
+
+    public function actionLogout()
+    {
+        unset($_SESSION['Admin']);
+        header("Location: /");
+    }
+
     private function validate($name,$password)
     {
         $msg = "";

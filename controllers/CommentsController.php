@@ -28,7 +28,7 @@ class CommentsController extends Controller
         $nav = new nav\Paginator();
         $pagination = $nav->leafThrough('admin/blog', $page, $count, $listCount);
 
-        include_once ROOT . '/views/blog/Comments.php';
+        include_once ROOT . '/views/comments/Comments.php';
     }
 
     private function insert($name, $message, $idblog)

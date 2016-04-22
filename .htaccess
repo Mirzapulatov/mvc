@@ -3,6 +3,10 @@ AddDefaultCharset utf-8
 RewriteEngine on
 RewriteBase /
 
+#RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^(www\.)?fpp82\.ru$
+#RewriteRule ^(.*)$ http://www.frbk.ru/$1 [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 

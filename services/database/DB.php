@@ -1,6 +1,5 @@
 <?php
-namespace models;
-
+namespace services\database;
 /**
  * Class DB
  * connections data base

@@ -7,6 +7,6 @@ class Contacts extends ORModel
 {
     function __construct()
     {
-        $this->table = "contacts";
+        $this->setTable("contacts");
     }
 }

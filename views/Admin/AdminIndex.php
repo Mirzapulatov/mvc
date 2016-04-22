@@ -6,5 +6,6 @@
                 <a href="/admin/news/"> <h2><span>Управление новостями</span></h2></a>
                 <a href="/admin/portfolio/"> <h2><span>Управление портфолио</span></h2></a>
                 <a href="/admin/contacts/"> <h2><span>Почта</span></h2></a>
+                <a href="/logout"> <h2><span>Выход</span></h2></a>
             </div>
         </div>
