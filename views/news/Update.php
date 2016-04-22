@@ -4,23 +4,24 @@
             <div class="article">
 
                 <a href="../.">Управление новостями</a><br/>
-                    <h2><span>Update News</span></h2>
-                    <div class="clr"></div>
-                    <?php
-                    if ($availability) {
+                <h2><span>Update News</span></h2>
+                <div class="clr"></div>
+                <?php
+                if ($availability) {
                     if (!empty($msg)) {
                         echo $msg;
                     } ?>
                     <form action="" method="post">
                         <ol>
                             <li>
-                                <label for="name"> Заголовок</label>
-                                <input name="title" class="text" value="<?php echo $change->CheckXSS($news['title']); ?>"/>
+                                <label> Заголовок</label>
+                                <input name="title" class="text"
+                                       value="<?php echo $change->CheckXSS($news['title']); ?>"/>
                             </li>
                             <li>
-                            <li>
-                                <label for="text">Текст новости </label>
-                                <textarea name="text" rows="8" cols="50"><?php echo $change->CheckXSS($news['text']); ?></textarea>
+                                <label>Текст новости </label>
+                                <textarea name="text" rows="8"
+                                          cols="50"><?php echo $change->CheckXSS($news['text']); ?></textarea>
                             </li>
                             <li>
                                 <input type="submit" value="Изменить" class="send"/>
@@ -29,9 +30,11 @@
                         </ol>
                     </form>
                 <?php } else {
-                        ?>
-                Блог не существует!
-<?php } ?>
+                    ?>
+                    Блог не существует!
+                <?php } ?>
 
             </div>
         </div>
+    </div>
+</div>

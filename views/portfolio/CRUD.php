@@ -10,7 +10,8 @@
                     <?php while ($portfolio = $query->fetch()) { ?>
                         <tr>
                             <td><?php echo $portfolio['id']; ?></td>
-                            <td><img src="/common/files/portfolio/<?php echo $portfolio['img']; ?>" width="100px" alt="" class="fl"/></td>
+                            <td><img src="/common/files/portfolio/<?php echo trim($portfolio['img']); ?>" width="100"
+                                     alt=""/></td>
                             <td><?php echo $change->CheckXSS($change->resizeString($portfolio['name'], 20)); ?></td>
                             <td><?php echo $change->CheckXSS($change->resizeString($portfolio['opis'], 50)); ?></td>
                             <td>
@@ -21,7 +22,8 @@
                     <?php } ?>
                 </table>
                 <?php echo $pagination; ?>
-
             </div>
         </div>
+    </div>
+</div>
 

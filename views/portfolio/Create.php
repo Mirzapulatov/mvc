@@ -12,15 +12,15 @@
                 <form action="" method="post" enctype="multipart/form-data">
                     <ol>
                         <li>
-                            <label for="name">Имя</label>
+                            <label>Имя</label>
                             <input name="name" class="text"/>
                         </li>
                         <li>
-                            <label for="author">Скриншот </label>
+                            <label>Скриншот </label>
                             <input type="file" name="screen" class="text"/>
                         </li>
                         <li>
-                            <label for="opis">Описание </label>
+                            <label>Описание </label>
                             <textarea name="opis" rows="8" cols="50"></textarea>
                         </li>
                         <li>
@@ -29,6 +29,7 @@
                         </li>
                     </ol>
                 </form>
-
             </div>
         </div>
+    </div>
+</div>

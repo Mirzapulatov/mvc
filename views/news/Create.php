@@ -12,11 +12,11 @@
                 <form action="" method="post">
                     <ol>
                         <li>
-                            <label for="name"> Заголовок</label>
+                            <label> Заголовок</label>
                             <input name="title" class="text"/>
                         </li>
                         <li>
-                            <label for="text">Текст новости </label>
+                            <label>Текст новости </label>
                             <textarea name="text" rows="8" cols="50"></textarea>
                         </li>
                         <li>
@@ -25,6 +25,7 @@
                         </li>
                     </ol>
                 </form>
-
             </div>
         </div>
+    </div>
+</div>

@@ -15,8 +15,7 @@
                         <div class="clr"></div>
                         <ol>
                             <li>
-                                <form action="<?php echo $id; ?>/ok/"><input type="submit" value="Удалить"
-                                                                             class="send"/>
+                                <form action="<?php echo $id; ?>/ok/"><input type="submit" value="Удалить" class="send"/>
                                 </form>
                                 <form action="../"><input type="submit" value="Отмена" class="send"/></form>
                                 <div class="clr"></div>
@@ -28,6 +27,7 @@
                     Блог не существует!
                     <?php
                 } ?>
-
             </div>
         </div>
+    </div>
+</div>

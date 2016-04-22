@@ -14,16 +14,19 @@
                     <form action="" method="post">
                         <ol>
                             <li>
-                                <label for="name">Имя </label>
-                                <input id="name" name="name" class="text" value="<?php echo $change->CheckXSS($contacts['name']); ?>" />
+                                <label>Имя </label>
+                                <input id="name" name="name" class="text"
+                                       value="<?php echo $change->CheckXSS($contacts['name']); ?>"/>
                             </li>
                             <li>
-                                <label for="email">Почта </label>
-                                <input id="email" name="email" class="text" value="<?php echo $change->CheckXSS(str_replace(" ","",$contacts['email'])); ?>" />
+                                <label>Почта </label>
+                                <input id="email" name="email" class="text"
+                                       value="<?php echo $change->CheckXSS(str_replace(" ", "", $contacts['email'])); ?>"/>
                             </li>
                             <li>
-                                <label for="message">Сообщение </label>
-                                <textarea id="message" name="message" rows="8" cols="50"><?php echo $change->CheckXSS($contacts['message']); ?></textarea>
+                                <label>Сообщение </label>
+                                <textarea id="message" name="message" rows="8"
+                                          cols="50"><?php echo $change->CheckXSS($contacts['message']); ?></textarea>
                             </li>
                             <li>
                                 <input type="submit" value="Изменить" class="send"/>
@@ -34,6 +37,8 @@
                 <?php } else {
                     ?>
                     не существует!
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
+    </div>
+</div>

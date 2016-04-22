@@ -13,16 +13,16 @@
                     <form action="" method="post">
                         <ol>
                             <li>
-                                <label for="name"> Заголовок</label>
+                                <label> Заголовок</label>
                                 <input name="title" class="text" value="<?php echo $blog['title']; ?>"/>
                             </li>
                             <li>
-                                <label for="author">Автор </label>
+                                <label>Автор </label>
                                 <input name="author" class="text"
                                        value="<?php echo $change->CheckXSS($blog['author']); ?>"/>
                             </li>
                             <li>
-                                <label for="text">Текст блога </label>
+                                <label>Текст блога </label>
                                 <textarea name="text" rows="8"
                                           cols="50"><?php echo $change->CheckXSS($blog['text']); ?></textarea>
                             </li>
@@ -36,6 +36,7 @@
                     ?>
                     Блог не существует!
                 <?php } ?>
-
             </div>
         </div>
+    </div>
+</div>

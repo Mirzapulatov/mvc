@@ -14,16 +14,16 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <ol>
                             <li>
-                                <label for="name">Имя</label>
-                                <input name="name" class="text" value="<?php echo $portfolio['name'];?>"/>
+                                <label>Имя</label>
+                                <input name="name" class="text" value="<?php echo $portfolio['name']; ?>"/>
                             </li>
                             <li>
-                                <label for="author">Скриншот (не обязательно)</label>
+                                <label>Скриншот (не обязательно)</label>
                                 <input type="file" name="screen" class="text"/>
                             </li>
                             <li>
-                                <label for="opis">Описание </label>
-                                <textarea name="opis" rows="8" cols="50"><?php echo $portfolio['opis'];?></textarea>
+                                <label>Описание </label>
+                                <textarea name="opis" rows="8" cols="50"><?php echo $portfolio['opis']; ?></textarea>
                             </li>
                             <li>
                                 <input type="submit" value="Изменить" class="send"/>
@@ -32,8 +32,10 @@
                         </ol>
                     </form>
                 <?php } else {
-                ?>
-                Блог не существует!
-<?php }?>
+                    ?>
+                    Блог не существует!
+                <?php } ?>
             </div>
         </div>
+    </div>
+</div>

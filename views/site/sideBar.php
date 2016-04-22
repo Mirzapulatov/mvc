@@ -1,7 +1,4 @@
 
-<div class="clr"></div>
-</div>
-</div>
 <div class="fbg">
     <div class="fbg_resize">
         <div class="col c1">
@@ -28,3 +25,6 @@
                 <span>Другое:</span> +301 - 0125 - 01258<br />
                 <span>E-mail:</span> <a href="#">mail@yoursitename.com</a> </p>
         </div>
+        <div class="clr"></div>
+    </div>
+</div>

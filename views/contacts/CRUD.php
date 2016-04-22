@@ -17,14 +17,13 @@
                                 <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/view/<?php echo $contacts['id']; ?>">Просмтотреть</a>
                                 <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/update/<?php echo $contacts['id']; ?>">Изменить</a>
                                 <a href="/<?php echo $_SERVER['REQUEST_URI']; ?>/delete/<?php echo $contacts['id']; ?>">Удалить</a>
-
                             </td>
                         </tr>
                     <?php } ?>
                 </table>
-
                 <?php echo $pagination; ?>
-
             </div>
         </div>
+    </div>
+</div>
 

@@ -8,9 +8,10 @@
                 <h2><span>CRUD</span></h2>
                 <table border="1px">
                     <?php
-                    if(!$query->rowCount()){ ?>
+                    if (!$query->rowCount()) { ?>
                         Комментарии отсутствуют
-                    <?php } while ($blogComments = $query->fetch()) { ?>
+                    <?php }
+                    while ($blogComments = $query->fetch()) { ?>
                         <tr>
                             <td><?php echo $blogComments['id']; ?></td>
                             <td><?php echo $change->CheckXSS($change->resizeString($blogComments['name'], 20)); ?></td>
@@ -24,7 +25,8 @@
                     <?php } ?>
                 </table>
                 <?php echo $pagination; ?>
-
             </div>
         </div>
+    </div>
+</div>
 

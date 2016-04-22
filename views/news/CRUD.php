@@ -20,7 +20,8 @@
                     <?php } ?>
                 </table>
                 <?php echo $pagination; ?>
-
             </div>
         </div>
+    </div>
+</div>
 
